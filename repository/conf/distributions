@@ -1,0 +1,7 @@
+Origin: XBian
+Label: XBian repository
+Codename: wheezy
+Architectures: armhf
+Components: main
+Description: Packages especially made for XBian
+SignWith: ********
