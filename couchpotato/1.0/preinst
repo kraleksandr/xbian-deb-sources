@@ -1,0 +1,1165 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ ! -d "/etc/init.d" ]; then
+		mkdir -p "/etc/init.d";
+	fi
+
+	if [ ! -d "/usr/local/etc/couchpotato" ]; then
+		mkdir -p "/usr/local/etc/couchpotato";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato" ]; then
+		mkdir -p "/usr/local/share/couchpotato";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/3f" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/3f";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/7c" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/7c";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/d7" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/d7";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/ed" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/ed";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/10" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/10";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/63" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/63";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/56" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/56";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/38" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/38";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/cc" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/cc";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/a0" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/a0";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/23" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/23";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/d6" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/d6";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/pack" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/pack";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/78" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/78";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/5c" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/5c";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/a9" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/a9";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/bf" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/bf";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/3d" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/3d";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/34" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/34";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/objects/1e" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/objects/1e";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/logs/refs/remotes/origin" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/logs/refs/remotes/origin";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/logs/refs/heads" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/logs/refs/heads";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/logs" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/logs";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/hooks" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/hooks";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/refs/remotes/origin" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/refs/remotes/origin";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/refs/heads" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/refs/heads";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/.git/info" ]; then
+		mkdir -p "/usr/local/share/couchpotato/.git/info";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/static/style" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/static/style";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/static/images" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/static/images";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/static/scripts" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/static/scripts";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/static/scripts/page" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/static/scripts/page";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/static/scripts/block" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/static/scripts/block";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/static/scripts/library" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/static/scripts/library";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/static/scripts/library/form_replacement" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/static/scripts/library/form_replacement";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/log" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/log";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/log/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/log/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/manage" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/manage";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/browser" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/browser";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/renamer" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/renamer";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/library" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/library";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/release" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/release";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/profile" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/profile";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/profile/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/profile/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/suggestion" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/suggestion";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/scanner" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/scanner";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/automation" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/automation";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/searcher" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/searcher";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/status" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/status";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/status/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/status/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/v1importer" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/v1importer";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/subtitle" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/subtitle";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/movie/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/movie/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/movie" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/movie";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/trailer" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/trailer";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/file/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/file/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/file" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/file";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/quality/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/quality/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/quality" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/quality";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/score" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/score";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/wizard/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/wizard/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/wizard" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/wizard";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/userscript/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/userscript/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/plugins/userscript" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/plugins/userscript";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/settings" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/settings";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/metadata" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/metadata";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/metadata/xbmc" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/metadata/xbmc";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/sceneaccess" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/sceneaccess";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/kickasstorrents" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/kickasstorrents";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/thepiratebay" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/thepiratebay";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/scenehd" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/scenehd";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/torrentday" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/torrentday";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/torrentleech" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/torrentleech";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/publichd" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/publichd";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/passthepopcorn" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/torrent/passthepopcorn";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/itunes" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/itunes";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/imdb" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/imdb";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/moviemeter" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/moviemeter";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/cp" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/cp";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/goodfilms" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/goodfilms";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/bluray" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/bluray";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/kinepolis" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/kinepolis";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/movies_io" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/movies_io";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/trakt" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/trakt";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/automation/rottentomatoes" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/automation/rottentomatoes";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/movie" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/movie";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/movie/couchpotatoapi" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/movie/couchpotatoapi";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/movie/omdbapi" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/movie/omdbapi";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/movie/_modifier" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/movie/_modifier";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/movie/themoviedb" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/movie/themoviedb";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/ftdworld" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/ftdworld";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/nzbclub" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/nzbclub";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/nzbindex" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/nzbindex";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/nzbx" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/nzbx";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/nzbsrus" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/nzbsrus";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/omgwtfnzbs" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/omgwtfnzbs";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/binsearch" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/binsearch";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/newznab" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/nzb/newznab";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/whiwa" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/whiwa";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/imdb" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/imdb";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/sharethe" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/sharethe";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/trakt" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/trakt";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/rottentomatoes" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/rottentomatoes";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/allocine" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/allocine";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/youteather" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/youteather";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/moviesio" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/moviesio";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/filmweb" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/filmweb";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/appletrailers" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/appletrailers";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/letterboxd" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/letterboxd";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/tmdb" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/tmdb";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/moviemeter" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/userscript/moviemeter";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/trailer" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/trailer";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/providers/trailer/hdtrailers" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/providers/trailer/hdtrailers";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/helpers" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/helpers";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/migration" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/migration";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/migration/versions" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/migration/versions";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/_base/updater" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/_base/updater";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/_base/updater/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/_base/updater/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/_base" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/_base";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/_base/clientscript" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/_base/clientscript";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/_base/scheduler" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/_base/scheduler";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/_base/desktop" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/_base/desktop";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/_base/_core" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/_base/_core";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/twitter/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/twitter/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/twitter" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/twitter";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/synoindex" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/synoindex";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/growl" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/growl";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/notifymyandroid" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/notifymyandroid";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/boxcar" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/boxcar";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/nmj" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/nmj";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/xbmc" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/xbmc";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/notifymywp" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/notifymywp";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/prowl" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/prowl";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/plex" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/plex";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/core/static" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/core/static";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/core" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/core";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/notifo" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/notifo";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/pushover" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/pushover";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/email" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/email";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/notifications/toasty" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/notifications/toasty";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders/transmission" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders/transmission";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders/synology" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders/synology";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders/blackhole" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders/blackhole";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders/nzbvortex" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders/nzbvortex";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders/nzbget" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders/nzbget";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders/utorrent" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders/utorrent";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders/sabnzbd" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders/sabnzbd";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/core/downloaders/pneumatic" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/core/downloaders/pneumatic";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/couchpotato/templates" ]; then
+		mkdir -p "/usr/local/share/couchpotato/couchpotato/templates";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/init" ]; then
+		mkdir -p "/usr/local/share/couchpotato/init";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/oauthlib" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/oauthlib";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/oauthlib/oauth1" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/oauthlib/oauth1";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/oauthlib/oauth1/rfc5849" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/oauthlib/oauth1/rfc5849";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/oauthlib/oauth2/draft25" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/oauthlib/oauth2/draft25";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/oauthlib/oauth2" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/oauthlib/oauth2";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/elixir" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/elixir";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/elixir/ext" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/elixir/ext";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/certifi" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/certifi";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/httplib2" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/httplib2";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/suds/transport" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/suds/transport";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/suds/mx" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/suds/mx";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/suds" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/suds";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/suds/sax" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/suds/sax";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/suds/xsd" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/suds/xsd";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/suds/umx" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/suds/umx";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/suds/bindings" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/suds/bindings";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/subliminal" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/subliminal";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/subliminal/services" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/subliminal/services";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/html5lib/treewalkers" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/html5lib/treewalkers";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/html5lib" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/html5lib";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/html5lib/serializer" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/html5lib/serializer";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/html5lib/treebuilders" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/html5lib/treebuilders";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/html5lib/filters" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/html5lib/filters";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/enzyme" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/enzyme";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository/default" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository/default";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository/default/versions" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository/default/versions";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository/pylons" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository/pylons";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository/pylons/versions" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates/repository/pylons/versions";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates/script" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates/script";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates/sql_script" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates/sql_script";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/templates/manage" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/templates/manage";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/script" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/script";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/versioning/util" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/versioning/util";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/changeset/databases" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/changeset/databases";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/migrate/changeset" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/migrate/changeset";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pytwitter" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pytwitter";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/chardet" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/chardet";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/tornado" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/tornado";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/tornado/platform" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/tornado/platform";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil/test" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil/test";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil/test/current/json_tests" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil/test/current/json_tests";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil/test/current" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil/test/current";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil/test/out_of_shape" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil/test/out_of_shape";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil/test/deprecated" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil/test/deprecated";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil/xor" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil/xor";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil/benchmarks" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil/benchmarks";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyutil/scripts" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyutil/scripts";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/oauth2/clients" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/oauth2/clients";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/oauth2" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/oauth2";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/oauthlib" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/oauthlib";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/oauthlib/oauth2" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/oauthlib/oauth2";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/oauthlib/oauth2/draft25" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/oauthlib/oauth2/draft25";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/oauthlib/oauth1/rfc5849" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/oauthlib/oauth1/rfc5849";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/oauthlib/oauth1" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/oauthlib/oauth1";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/chardet2" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/chardet2";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/urllib3" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/urllib3";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/urllib3/packages" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/urllib3/packages";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/urllib3/packages/ssl_match_hostname" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/urllib3/packages/ssl_match_hostname";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/requests/packages/chardet" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/requests/packages/chardet";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/themoviedb" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/themoviedb";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/rsa" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/rsa";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/bs4" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/bs4";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/bs4/builder" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/bs4/builder";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/jinja2" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/jinja2";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/jinja2/_markupsafe" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/jinja2/_markupsafe";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/jinja2/testsuite" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/jinja2/testsuite";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/jinja2/testsuite/res/templates" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/jinja2/testsuite/res/templates";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/jinja2/testsuite/res/templates/foo" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/jinja2/testsuite/res/templates/foo";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/jinja2/testsuite/res" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/jinja2/testsuite/res";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/git" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/git";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/connectors" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/connectors";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/sql" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/sql";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/orm" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/orm";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/databases" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/databases";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/sqlite" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/sqlite";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/oracle" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/oracle";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/informix" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/informix";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/drizzle" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/drizzle";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/postgresql" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/postgresql";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/mssql" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/mssql";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/access" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/access";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/mysql" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/mysql";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/sybase" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/sybase";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/maxdb" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/maxdb";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/firebird" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/dialects/firebird";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/engine" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/engine";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/ext" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/ext";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/cextension" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/cextension";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/sqlalchemy/util" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/sqlalchemy/util";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/bencode" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/bencode";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/tempita" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/tempita";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/guessit" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/guessit";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/guessit/transfo" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/guessit/transfo";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/minify" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/minify";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pynma" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pynma";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pynmwp" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pynmwp";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/axl" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/axl";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/werkzeug" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/werkzeug";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/werkzeug/contrib" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/werkzeug/contrib";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/werkzeug/debug" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/werkzeug/debug";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/werkzeug/debug/shared" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/werkzeug/debug/shared";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyasn1" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyasn1";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyasn1/type" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyasn1/type";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyasn1/codec/der" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyasn1/codec/der";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyasn1/codec" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyasn1/codec";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyasn1/codec/ber" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyasn1/codec/ber";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyasn1/codec/cer" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyasn1/codec/cer";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/pyasn1/compat" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/pyasn1/compat";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/flask" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/flask";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/flask/ext" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/flask/ext";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/apscheduler/jobstores" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/apscheduler/jobstores";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/apscheduler" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/apscheduler";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/apscheduler/triggers/cron" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/apscheduler/triggers/cron";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/apscheduler/triggers" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/apscheduler/triggers";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/gntp" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/gntp";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/dateutil" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/dateutil";
+	fi
+
+	if [ ! -d "/usr/local/share/couchpotato/libs/dateutil/zoneinfo" ]; then
+		mkdir -p "/usr/local/share/couchpotato/libs/dateutil/zoneinfo";
+	fi
+
+fi

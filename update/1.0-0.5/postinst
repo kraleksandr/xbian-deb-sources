@@ -1,0 +1,472 @@
+#!/bin/bash
+
+if [ $1 == "configure" ]; then
+
+	rm /home/xbian/update.log &>/dev/null
+
+	/usr/bin/splash --infinitebar --msgtxt="installing update..."
+	
+	echo "3) Creating swap file"
+
+	sed -i '/# a swapfile is not a swap partition,/d' /etc/fstab
+	if [ $(grep swap /etc/fstab | wc -l) -eq 0 ]; then
+		dd if=/dev/zero of=/var/swapfile bs=1024 count=128000 >/dev/null 1>/dev/null 2>/dev/null
+		mkswap /var/swapfile >/dev/null 1>/dev/null 2>/dev/null
+		swapon /var/swapfile >/dev/null 1>/dev/null 2>/dev/null
+		echo -e '/var/swapfile\t\t\t\tswap\t\tswap\tdefaults\t\t\t0\t0' >> /etc/fstab
+	fi
+
+	echo "4) Changing memory split"
+
+	if [ $(cat /boot/config.txt | grep "gpu_mem_256=100" | wc -l) -eq 1 ];	then
+		sed -i 's/gpu_mem_256=100/gpu_mem_256=128/g' /boot/config.txt
+		if [ $(cat /boot/config.txt | grep "gpu_mem_256=128" | wc -l) -eq 1 ];	then
+			echo "Success: changed RPi 256 memsplit" >> /home/xbian/update.log; 
+		else
+			echo "Error: failed to set RPi 256 memsplit" >> /home/xbian/update.log; 
+		fi
+	else
+		echo "Notice: RPi 256 memsplit already set" >> /home/xbian/update.log; 
+	fi
+
+	if [ $(cat /boot/config.txt | grep "gpu_mem_512=100" | wc -l) -eq 1 ];	then
+		sed -i 's/gpu_mem_512=100/gpu_mem_512=128/g' /boot/config.txt
+		if [ $(cat /boot/config.txt | grep "gpu_mem_512=128" | wc -l) -eq 1 ];	then
+			echo "Success: changed RPi 512 memsplit" >> /home/xbian/update.log; 
+		else
+			echo "Error: failed to set RPi 512 memsplit" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: RPi 512 memsplit already set" >> /home/xbian/update.log; 
+	fi
+
+	echo "5) Add custom initramsfs to config.txt"
+
+	if [ $(grep "initramfs" /boot/config.txt | wc -l) -eq 0 ];	then
+		sed -i '1i initramfs initramfs.gz 0x00a00000' /boot/config.txt
+		if [ $(grep "initramfs" /boot/config.txt | wc -l) -ge 1 ];	then
+			echo "Success: added initramfs to config.txt" >> /home/xbian/update.log; 
+		else
+			echo "Error: failed to add initramfs to config.txt" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: initramfs already set in config.txt" >> /home/xbian/update.log; 
+	fi
+
+	echo "6) Applying patches";
+
+	if [ $(grep "Important\|2013" /etc/motd | wc -l) -le 1 ]; then
+
+cat <<\EOF > /etc/motd
+------------------------------------------------------------------
+     Y88b d88P  888888b.   8888888        d8888 888b    888
+      Y88o88P   888  .88P    888        d88P888 88888b  888
+       Y888P    8888888K.    888       d88P 888 888Y88b 888
+       d888b    888  "Y88b   888      d88P  888 888 Y88b888
+     d88P Y88b  888   d88P   888    d8888888888 888   Y8888
+    d88P   Y88b 8888888P"  8888888 d88P     888 888    Y888
+------------------------------------------------------------------
+XBian v1.0 - XBMC on the Raspbery Pi, Bleeding Edge, 2012 - 2013
+Find up as: http://www.xbian.org / https://github.com/xbianonpi/xbian
+
+XBian and all it's packages are distributed as free software; the
+exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright. XBian itself is
+distributed under the GNU GENERAL PUBLIC LICENSE v3. A full copy
+of this license can be found under /etc/xbian_copying
+
+XBian v1.0 comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+
+!Important notice!
+rpi-update breaks core features of xbian, use it at your own risk
+
+EOF
+
+		if [ $(grep "Important\|2013" /etc/motd | wc -l) -ge 2 ]; then
+			echo "Success: applied 001-motd.patch" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: 001-motd.patch already applied" >> /home/xbian/update.log;
+	fi
+
+	if [ ! -f "/etc/modprobe.d/8192cu.conf" ] || [ $(grep "options 8192cu rtw_power_mgnt=0 rtw_enusbss=0" "/etc/modprobe.d/8192cu.conf" | wc -l) -eq 0 ]; then
+		echo "options 8192cu rtw_power_mgnt=0 rtw_enusbss=0" >> /etc/modprobe.d/8192cu.conf
+		echo "Success: applied 002-8192cu.patch" >> /home/xbian/update.log;
+	else
+		echo "Notice: 002-8192cu.patch already applied" >> /home/xbian/update.log;
+	fi;
+
+
+cat <<\EOF > /tmp/003-usbmount.patch
+--- a/etc/usbmount/usbmount.conf
++++ b/etc/usbmount/usbmount.conf
+@@ -35,7 +35,7 @@
+ #############################################################################
+ # Mount options: Options passed to the mount command with the -o flag.
+ # See the warning above regarding removing "sync" from the options.
+-MOUNTOPTIONS="sync,noexec,nodev,noatime,nodiratime"
++MOUNTOPTIONS="sync,noexec,nodev,noatime,nodiratime,rw"
+ 
+ # Filesystem type specific mount options: This variable contains a space
+ # separated list of strings, each which the form "-fstype=TYPE,OPTIONS".
+@@ -48,11 +48,8 @@
+ # is mounted.
+ FS_MOUNTOPTIONS="-fstype=ntfs,gid=xbian,uid=xbian,umask=0 \
+ 		 -fstype=vfat,gid=xbian,uid=xbian,umask=0 \
+-		 -fstype=ext2,gid=xbian,uid=xbian,umask=0 \
+-		 -fstype=ext3,gid=xbian,uid=xbian,umask=0 \
+-		 -fstype=ext4,gid=xbian,uid=xbian,umask=0 \
+-		 -fstype=hfsplus,gid=xbian,uid=xbian,umask=0 \
+-		 -fstype=exfat,gid=xbian,uid=xbian,umask=0"
++		 -fstype=hfsplus,gid=xbian,uid=xbian,umask=0,force \
++		 -fstype=exfat,gid=xbian,uid=xbian,umask=0"		 
+ 
+ # If set to "yes", more information will be logged via the syslog
+ # facility.
+
+EOF
+
+	patch --dry-run /etc/usbmount/usbmount.conf < /tmp/003-usbmount.patch 2>/dev/null >/dev/null;
+	if [ $? == 0 ]; then
+		patch /etc/usbmount/usbmount.conf < /tmp/003-usbmount.patch 2>/dev/null >/dev/null;
+		echo "Success: applied 003-usbmount.patch" >> /home/xbian/update.log;
+	else
+		echo "Notice: 003-usbmount.patch already applied" >> /home/xbian/update.log;
+	fi;
+
+cat <<\EOF > /tmp/004-xbian_version.patch
+--- a/etc/xbian_version
++++ b/etc/xbian_version
+@@ -1 +1 @@
+-1.0a4
++1.0a5
+EOF
+
+	patch --dry-run /etc/xbian_version < /tmp/004-xbian_version.patch 2>/dev/null >/dev/null;
+	if [ $? == 0 ]; then
+		patch /etc/xbian_version < /tmp/004-xbian_version.patch 2>/dev/null >/dev/null;
+		echo "Success: applied 004-xbian_version.patch" >> /home/xbian/update.log;
+	else
+		echo "Notice: 004-xbian_version.patch already applied" >> /home/xbian/update.log;
+	fi;
+
+cat <<\EOF > /tmp/005-bashrc.patch
+--- a/home/xbian/.bashrc
++++ b/home/xbian/.bashrc
+@@ -102,4 +102,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+     . /etc/bash_completion
+ fi
+ 
+-source /etc/profile.d/hideoutput.sh
++sudo xbian-config
+EOF
+
+	patch --dry-run /home/xbian/.bashrc < /tmp/005-bashrc.patch 2>/dev/null >/dev/null;
+	if [ $? == 0 ]; then
+		patch /home/xbian/.bashrc < /tmp/005-bashrc.patch 2>/dev/null >/dev/null;
+		echo "Success: applied 005-bashrc.patch" >> /home/xbian/update.log;
+	else
+		echo "Notice: 005-bashrc.patch already applied" >> /home/xbian/update.log;
+	fi;
+
+	if [ $(grep ".UTF-8$" /etc/profile | wc -l) -lt 3 ]; then
+		sed -i '/export LANG=/d' /etc/profile
+		sed -i '/export LANGUAGE=/d' /etc/profile
+		sed -i '/export LC_ALL=/d' /etc/profile
+		sed -i 's/export PATH/export PATH\nexport LANG=C.UTF-8\nexport LC_ALL=C.UTF-8\nexport LANGUAGE=C.UTF-8/g' /etc/profile
+		if [ $(grep ".UTF-8$" /etc/profile | wc -l) -eq 3 ]; then
+			export LANG=C.UTF-8 &>/dev/null
+			export LC_ALL=C.UTF-8 &>/dev/null
+			export LANGUAGE=C.UTF-8 &>/dev/null
+
+			echo "Success: applied 006-profile.patch" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: 006-profile.patch already applied" >> /home/xbian/update.log;
+	fi
+
+	if [ $(grep -A 2 "/dev/sda" /etc/hdparm.conf | grep "spindown_time" | wc -l) -eq 0 ]; then
+		echo -e "/dev/sda {\n    spindown_time = 60\n}" >> /etc/hdparm.conf
+		if [ $(grep -A 2 "/dev/sda" /etc/hdparm.conf | grep "spindown_time" | wc -l) -eq 1 ]; then
+			echo "Success: applied 007-hdparm-sda.patch" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: 007-hdparm-sda.patch already applied" >> /home/xbian/update.log;
+	fi
+
+	if [ $(grep -A 2 "/dev/sdb" /etc/hdparm.conf | grep "spindown_time" | wc -l) -eq 0 ]; then
+		echo -e "/dev/sdb {\n    spindown_time = 60\n}" >> /etc/hdparm.conf
+		if [ $(grep -A 2 "/dev/sdb" /etc/hdparm.conf | grep "spindown_time" | wc -l) -eq 1 ]; then
+			echo "Success: applied 008-hdparm-sdb.patch" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: 008-hdparm-sdb.patch already applied" >> /home/xbian/update.log;
+	fi
+
+	if [ $(grep xbian /etc/inittab | wc -l) -ge 1 ]; then
+
+cat <<\EOF > /etc/inittab
+# /etc/inittab: init(8) configuration.
+# $Id: inittab,v 1.91 2002/01/25 13:35:21 miquels Exp $
+
+# The default runlevel.
+id:2:initdefault:
+
+# Boot-time system configuration/initialization script.
+# This is run first except when booting in emergency (-b) mode.
+si::sysinit:/etc/init.d/rcS
+
+# What to do in single-user mode.
+~~:S:wait:/sbin/sulogin
+
+# /etc/init.d executes the S and K scripts upon change
+# of runlevel.
+#
+# Runlevel 0 is halt.
+# Runlevel 1 is single-user.
+# Runlevels 2-5 are multi-user.
+# Runlevel 6 is reboot.
+
+l0:0:wait:/etc/init.d/rc 0
+l1:1:wait:/etc/init.d/rc 1
+l2:2:wait:/etc/init.d/rc 2
+l3:3:wait:/etc/init.d/rc 3
+l4:4:wait:/etc/init.d/rc 4
+l5:5:wait:/etc/init.d/rc 5
+l6:6:wait:/etc/init.d/rc 6
+# Normally not reached, but fallthrough in case of emergency.
+z6:6:respawn:/sbin/sulogin
+
+# What to do when CTRL-ALT-DEL is pressed.
+ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
+
+# Action on special keypress (ALT-UpArrow).
+#kb::kbrequest:/bin/echo "Keyboard Request--edit /etc/inittab to let this work."
+
+# What to do when the power fails/returns.
+pf::powerwait:/etc/init.d/powerfail start
+pn::powerfailnow:/etc/init.d/powerfail now
+po::powerokwait:/etc/init.d/powerfail stop
+
+# /sbin/getty invocations for the runlevels.
+#
+# The "id" field MUST be the same as the last
+# characters of the device (after "tty").
+#
+# Format:
+#  <id>:<runlevels>:<action>:<process>
+#
+# Note that on most Debian systems tty7 is used by the X Window System,
+# so if you want to add more getty's go ahead but skip tty7 if you run X.
+#
+1:2345:respawn:/sbin/getty 38400 tty1
+2:23:respawn:/sbin/getty 38400 tty2
+3:23:respawn:/sbin/getty 38400 tty3
+4:23:respawn:/sbin/getty 38400 tty4
+5:23:respawn:/sbin/getty 38400 tty5
+6:23:respawn:/sbin/getty 38400 tty6
+
+# Example how to put a getty on a serial line (for a terminal)
+#
+#T0:23:respawn:/sbin/getty -L ttyS0 9600 vt100
+#T1:23:respawn:/sbin/getty -L ttyS1 9600 vt100
+
+# Example how to put a getty on a modem line.
+#
+#T3:23:respawn:/sbin/mgetty -x0 -s 57600 ttyS3
+
+
+#Spawn a getty on Raspberry Pi serial line
+T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100
+EOF
+
+		if [ $(grep xbian /etc/inittab | wc -l) -eq 1 ]; then
+			echo "Success: applied 009-inittab.patch" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: 009-inittab.patch already applied" >> /home/xbian/update.log;
+	fi
+
+	if [ $(grep splash /etc/sudoers | wc -l) -eq 0 ]; then
+		if [ $(grep fbset /etc/sudoers | wc -l) -ge 1 ]; then
+			sed -i 's/\/bin\/fbset/\/usr\/bin\/splash/g' /etc/sudoers
+		else
+			sed -i 's/xbian ALL=(ALL) NOPASSWD:/xbian ALL=(ALL) NOPASSWD: \/usr\/bin\/splash,/g' /etc/sudoers
+		fi
+		if [ $(grep splash /etc/sudoers | wc -l) -eq 1 ]; then
+			echo "Success: applied 010-sudoers.patch" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: 010-sudoers.patch already applied" >> /home/xbian/update.log;
+	fi
+
+	echo "7) Updating XBMC configuration"
+
+	if [ -f "/home/xbian/.xbmc/userdata/sources.xml" ]; then
+		if [ $(grep "<path pathversion=\"1\">\/<\/path>" /home/xbian/.xbmc/userdata/sources.xml | wc -l) -eq 0 ];	then
+			cp /home/xbian/.xbmc/userdata/sources.xml /home/xbian/.xbmc/userdata/sources.xml.xbian
+			sed -i '/<\/files>/d' /home/xbian/.xbmc/userdata/sources.xml
+			sed -i '/<\/sources>/d' /home/xbian/.xbmc/userdata/sources.xml
+			echo -e "\t<source>\n\t\t<name>Root filesystem</name>\n\t\t<path pathversion=\"1\">/</path>\n\t</source>\n    </files>\n</sources>" >> /home/xbian/.xbmc/userdata/sources.xml
+			if [ $(grep "http://fusion.xbmchub.com/" /home/xbian/.xbmc/userdata/sources.xml | wc -l) -eq 1 ];	then
+				echo "Success: added root path as source" >> /home/xbian/update.log;
+			else
+				echo "Error: failed to add root path as source" >> /home/xbian/update.log;
+				mv /home/xbian/.xbmc/userdata/sources.xml.xbian /home/xbian/.xbmc/userdata/sources.xml
+				chown xbian:xbian /home/xbian/.xbmc/userdata/sources.xml
+			fi
+		else
+			echo "Notice: already added root path as source" >> /home/xbian/update.log;
+		fi
+	else
+		echo -e "<sources>\n    <files>\n\t<source>\n\t\t<name>Root filesystem</name>\n\t\t<path pathversion=\"1\">/</path>\n\t</source>\n    </files>\n</sources>" >> /home/xbian/.xbmc/userdata/sources.xml
+		chown xbian:xbian /home/xbian/.xbmc/userdata/sources.xml
+		if [ $(grep "<path pathversion=\"1\">\/<\/path>" /home/xbian/.xbmc/userdata/sources.xml | wc -l) -eq 1 ];	then
+			echo "Success: added root path as source" >> /home/xbian/update.log;
+		else
+			echo "Error: failed to add root path as source" >> /home/xbian/update.log;
+			rm /home/xbian/.xbmc/userdata/sources.xml
+		fi
+	fi
+
+	if [ $(grep "<devicename>XBMC<\/devicename>" /home/xbian/.xbmc/userdata/guisettings.xml | wc -l) -eq 1 ]; then
+		sed -i 's/<devicename>XBMC<\/devicename>/<devicename>XBian<\/devicename>/g' /home/xbian/.xbmc/userdata/guisettings.xml
+		if [ $(grep "<devicename>XBian<\/devicename>" /home/xbian/.xbmc/userdata/guisettings.xml | wc -l) -eq 1 ]; then
+			echo "Success: changed devicename to xbian" >> /home/xbian/update.log;
+		else
+			echo "Error: failed to change devicename to xbian" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: already changed devicename to xbian" >> /home/xbian/update.log;
+	fi
+
+	if [ $(grep "<cachemembuffersize>5282880<\/cachemembuffersize>" /home/xbian/.xbmc/userdata/advancedsettings.xml | wc -l) -eq 1 ]; then
+		sed -i 's/<cachemembuffersize>5282880<\/cachemembuffersize>/<cachemembuffersize>20971520<\/cachemembuffersize>/g' /home/xbian/.xbmc/userdata/advancedsettings.xml
+		if [ $(grep "<cachemembuffersize>20971520<\/cachemembuffersize>" /home/xbian/.xbmc/userdata/advancedsettings.xml | wc -l) -eq 1 ]; then
+			echo "Success: increased cachemembuffersize" >> /home/xbian/update.log;
+		else
+			echo "Error: failed to increase cachemembuffersize" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: already increased cachemembuffersize" >> /home/xbian/update.log;
+	fi
+
+	if [ $(grep "thumbres" /home/xbian/.xbmc/userdata/advancedsettings.xml | wc -l) -eq 1 ]; then
+		sed -i 's/thumbres/imageres/g' /home/xbian/.xbmc/userdata/advancedsettings.xml
+		if [ $(grep "imageres" /home/xbian/.xbmc/userdata/advancedsettings.xml | wc -l) -eq 1 ]; then
+			echo "Success: changed thumbres to imageres" >> /home/xbian/update.log;
+		else
+			echo "Error: failed to change thumbres to imageres" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: already changed thumbres to imageres" >> /home/xbian/update.log;
+	fi
+
+	if [ $(grep "<soundskin>OFF<\/soundskin>" /home/xbian/.xbmc/userdata/guisettings.xml | wc -l) -eq 0 ]; then
+		if [ $(grep "soundskin" /home/xbian/.xbmc/userdata/guisettings.xml | wc -l) -eq 1 ]; then
+			sed -i 's/<soundskin>SKINDEFAULT<\/soundskin>/<soundskin>OFF<\/soundskin>/g' /home/xbian/.xbmc/userdata/guisettings.xml
+		else
+			sed -i 's/    <\/lookandfeel>/        <soundskin>OFF<\/soundskin>\n    <\/lookandfeel>/g' /home/xbian/.xbmc/userdata/guisettings.xml
+		fi
+		if [ $(grep "<soundskin>OFF<\/soundskin>" /home/xbian/.xbmc/userdata/guisettings.xml | wc -l) -eq 1 ]; then
+			echo "Success: disabled skin sounds" >> /home/xbian/update.log;
+		else
+			echo "Error: failed to disable skin sounds" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: already disabled skin sounds" >> /home/xbian/update.log;
+	fi
+
+	if [ $(grep "channellayout" /home/xbian/.xbmc/userdata/guisettings.xml | wc -l) -eq 1 ]; then
+		sed -i 's/channellayout/channels/g' /home/xbian/.xbmc/userdata/guisettings.xml
+		if [ $(grep "channels" /home/xbian/.xbmc/userdata/guisettings.xml | wc -l) -eq 1 ]; then
+			echo "Success: changed channellayout to channels" >> /home/xbian/update.log;
+		else
+			echo "Error: failed to change channellayout to channels" >> /home/xbian/update.log;
+		fi
+	else
+		echo "Notice: already changed channellayout to channels" >> /home/xbian/update.log;
+	fi
+
+	ldconfig &>/dev/null
+
+	if [ -d "/home/xbian/.xbmc/addons/script.linux.nm" ]; then
+		rm -r "/home/xbian/.xbmc/addons/script.linux.nm";
+	fi
+
+	echo "8) Enable watchdog by default"
+	sed -i 's/#max-load-1\t\t= 24/max-load-1\t\t= 75\t/' /etc/watchdog.conf
+	sed -i 's/^#watchdog-device/watchdog-device/' /etc/watchdog.conf
+	update-rc.d watchdog defaults &>/dev/null
+	if [ $(grep bcm2708_wdog /etc/modules | wc -l) -eq 0 ]; then
+		echo "bcm2708_wdog" >> /etc/modules
+	fi
+
+	echo "9) Disabling klogd and syslogd by default"
+	update-rc.d klogd remove &>/dev/null
+	update-rc.d sysklogd remove &>/dev/null
+	/etc/init.d/klogd stop &>/dev/null
+	/etc/init.d/sysklogd stop &>/dev/null
+
+	echo 'APT::Update::Post-Invoke-Success {"touch /var/lib/apt/periodic/update-success-stamp 2>/dev/null || true";};' > /etc/apt/apt.conf.d/15update-stamp
+
+	echo "10) Updating apt sources"
+
+	sed -i '/apt.xbian.org/d' /etc/apt/sources.list
+	sed -i '/xbianmirror.thuisserver.com/d' /etc/apt/sources.list
+	sed -i '/xbian.brantje.com/d' /etc/apt/sources.list
+	sed -i '/xbian.dehakkelaar.nl/d' /etc/apt/sources.list
+	sed -i '/aptmirror.no-ip.org/d' /etc/apt/sources.list
+	sed -i '/dikonist.asuscomm.com:81/d' /etc/apt/sources.list
+	if [ $(grep "deb mirror://apt.xbian.org/mirror.txt wheezy main" /etc/apt/sources.list | wc -l) ]; then
+		echo "deb mirror://apt.xbian.org/mirror.txt wheezy main" >> /etc/apt/sources.list
+	fi
+	
+	if [ $(grep 'echo -ne' /etc/profile | grep 47l | grep 47h | wc -l) -eq 0 ]; then
+		sed -i "s/export PATH/echo -ne '\\\e%G\\\e[?47h\\\e%G\\\e[?47l'\nexport PATH/g" /etc/profile
+	fi
+	
+	if [ -f "/boot/initramfs.gz.xbian" ]; then
+		rm /boot/initramfs.gz.xbian
+	fi
+
+	if [ -f "/boot/cmdline.txt.xbian" ]; then
+		rm /boot/cmdline.txt.xbian
+	fi
+
+	rm -r /etc/profile.d/hideoutput.sh &>/dev/null
+	rm -r /etc/profile.d/xbian-config.sh &>/dev/null
+	
+	update-rc.d progress25 defaults &>/dev/null
+	update-rc.d progress37 defaults &>/dev/null
+	update-rc.d progress50 defaults &>/dev/null
+	update-rc.d progress75 defaults &>/dev/null
+
+	if [ -f "/usr/local/lib/libcec.so.2" ]; then
+		rm /usr/local/lib/libcec.so.2
+	fi
+	ln -s /usr/local/lib/libcec.so.2.0.0 /usr/local/lib/libcec.so.2
+	
+	ldconfig &>/dev/null
+
+	/usr/bin/splash --infinitebar --msgtxt="update complete..."
+	sleep 3
+	
+	if [ "$(vcgencmd version 2>/dev/null | sed -ne 's/version \([0-9]\{1,\}\).*/\1/p')" == "365344" ]; then
+		echo "11) Starting XBMC";
+		/etc/init.d/xbmc start &>/dev/null;
+	else
+		$((/usr/bin/splash --infinitebar --msgtxt="reboot in 3 minutes..."; sleep 180; sudo reboot) &);
+	fi
+	
+	echo "!------------------------------------------------!"
+	echo "!                                                !"
+	echo "!  Please reboot for the changes to take effect  !"
+	echo "!                                                !"
+	echo "!------------------------------------------------!"
+
+	echo "---UPDATE LOG---"
+	cat "/home/xbian/update.log"
+
+fi 

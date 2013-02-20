@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $1 == "remove" ] || [ $1 == "purge" ]; then
+
+	/etc/init.d/headphones stop &>/dev/null
+	if [ -f "/tmp/headphones.pid" ]; then
+		PID=$(cat /tmp/headphones.pid);
+		kill -0 $PID 2>/dev/null;
+		if [ $? -eq 0 ]; then
+				kill -9 $PID;
+				rm /tmp/headphones.pid
+		fi
+	fi
+	
+	if [ -f "/etc/init.d/headphones" ]; then
+		rm /etc/init.d/headphones &>/dev/null
+	fi
+	if [ -d "/usr/local/etc/headphones" ]; then
+		rm -r /usr/local/etc/headphones &>/dev/null
+	fi
+	if [ -d "/usr/local/share/headphones" ]; then
+		rm -r /usr/local/share/headphones &>/dev/null
+	fi
+	
+fi

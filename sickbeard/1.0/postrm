@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ $1 == "remove" ] || [ $1 == "purge" ]; then
+
+	/etc/init.d/sickbeard stop 2>/dev/null 1>/dev/null >/dev/null;
+	if [ -f "/tmp/sickbeard.pid" ]; then
+		PID=$(cat /tmp/sickbeard.pid);
+		kill -0 $PID 2>/dev/null;
+		if [ $? -eq 0 ]; then
+				kill -9 $PID;
+				rm /tmp/sickbeard.pid
+		fi
+	fi
+	if [ -f  "/etc/init.d/sickbeard" ]; then
+		rm /etc/init.d/sickbeard 2>/dev/null >/dev/null
+	fi
+	if [ -d "/usr/local/etc/sickbeard" ]; then
+		rm -r /usr/local/etc/sickbeard 2>/dev/null >/dev/null
+	fi
+	if [ -d "/usr/local/share/sickbeard" ]; then
+		rm -r /usr/local/share/sickbeard 2>/dev/null >/dev/null
+	fi
+	
+fi

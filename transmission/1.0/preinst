@@ -1,0 +1,57 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ ! -d "/etc/init.d" ]; then
+		mkdir -p "/etc/init.d";
+	fi
+
+	if [ ! -d "/usr/local/etc/transmission" ]; then
+		mkdir -p "/usr/local/etc/transmission";
+	fi
+
+	if [ ! -d "/usr/local/bin" ]; then
+		mkdir -p "/usr/local/bin";
+	fi
+
+	if [ ! -d "/usr/local/share/man/man1" ]; then
+		mkdir -p "/usr/local/share/man/man1";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web/style/transmission" ]; then
+		mkdir -p "/usr/local/share/transmission/web/style/transmission";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web/style/transmission/images" ]; then
+		mkdir -p "/usr/local/share/transmission/web/style/transmission/images";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web/style/transmission/images/buttons" ]; then
+		mkdir -p "/usr/local/share/transmission/web/style/transmission/images/buttons";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web/style/jqueryui" ]; then
+		mkdir -p "/usr/local/share/transmission/web/style/jqueryui";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web/style/jqueryui/images" ]; then
+		mkdir -p "/usr/local/share/transmission/web/style/jqueryui/images";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web/images" ]; then
+		mkdir -p "/usr/local/share/transmission/web/images";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web" ]; then
+		mkdir -p "/usr/local/share/transmission/web";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web/javascript" ]; then
+		mkdir -p "/usr/local/share/transmission/web/javascript";
+	fi
+
+	if [ ! -d "/usr/local/share/transmission/web/javascript/jquery" ]; then
+		mkdir -p "/usr/local/share/transmission/web/javascript/jquery";
+	fi
+
+fi

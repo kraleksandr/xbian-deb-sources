@@ -1,0 +1,11 @@
+Origin: XBian
+Package: xbian-package-nzbget
+Version: 1.0
+Section: net
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Depends: libpar2-0
+Installed-Size: 5080
+Maintainer: CurlyMo <development@xbian.org>
+Description: NZBGet compiled, patched and configured for XBian

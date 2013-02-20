@@ -1,0 +1,55 @@
+#!/bin/bash
+
+if [ "$1" == "remove" ] || [ $1 == "purge" ]; then
+
+	pkill transmission &>/dev/null;
+	/etc/init.d/transmission stop &>/dev/null;
+	if [ -f "/etc/init.d/transmission" ]; then
+		rm /etc/init.d/transmission &>/dev/null;
+	fi
+	if [ -f "/usr/local/bin/transmission-cli" ]; then
+		rm /usr/local/bin/transmission-cli &>/dev/null;
+	fi
+	if [ -f "/usr/local/bin/transmission-remote" ]; then
+		rm /usr/local/bin/transmission-remote &>/dev/null;
+	fi
+	if [ -f "/usr/local/bin/transmission-show" ]; then
+		rm /usr/local/bin/transmission-show &>/dev/null;
+	fi
+	if [ -f "/usr/local/bin/transmission-create" ]; then
+		rm /usr/local/bin/transmission-create &>/dev/null;
+	fi
+	if [ -f "/usr/local/bin/transmission-daemon" ]; then
+		rm /usr/local/bin/transmission-daemon &>/dev/null;
+	fi
+	if [ -f "/usr/local/bin/transmission-edit" ]; then
+		rm /usr/local/bin/transmission-edit &>/dev/null;
+	fi
+		
+	if [ -d "/usr/local/etc/transmission" ]; then
+		rm -r /usr/local/etc/transmission &>/dev/null;
+	fi
+	if [ -f "/usr/local/share/man/man1/transmission-edit.1" ]; then
+		rm /usr/local/share/man/man1/transmission-edit.1 &>/dev/null;
+	fi
+	if [ -f "/usr/local/share/man/man1/transmission-show.1" ]; then
+		rm /usr/local/share/man/man1/transmission-show.1 &>/dev/null;
+	fi
+	if [ -f "/usr/local/share/man/man1/transmission-create.1" ]; then
+		rm /usr/local/share/man/man1/transmission-create.1 &>/dev/null;
+	fi
+	if [ -f "/usr/local/share/man/man1/transmission-cli.1" ]; then
+		rm /usr/local/share/man/man1/transmission-cli.1 &>/dev/null;
+	fi
+	if [ -f "/usr/local/share/man/man1/transmission-remote.1" ]; then
+		rm /usr/local/share/man/man1/transmission-remote.1 &>/dev/null;
+	fi
+	if [ -f "/usr/local/share/man/man1/transmission-daemon.1" ]; then
+		rm /usr/local/share/man/man1/transmission-daemon.1 &>/dev/null;
+	fi
+	
+	if [ -d "/usr/local/share/transmission" ]; then
+		rm -r /usr/local/share/transmission &>/dev/null;
+	fi
+
+fi

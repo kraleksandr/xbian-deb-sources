@@ -1,0 +1,12 @@
+Origin: XBian
+Package: xbian-package-transmission
+Version: 1.0
+Section: net
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Depends: libevent-dev, libcurl3
+Conflicts: transmission-cli, transmission-daemon, transmission-common
+Installed-Size: 56220
+Maintainer: CurlyMo <development@xbian.org>
+Description: Transmission compiled, patched and configured for XBian

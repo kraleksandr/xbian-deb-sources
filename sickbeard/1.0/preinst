@@ -1,0 +1,345 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ ! -d "/etc/init.d" ]; then
+		mkdir -p "/etc/init.d";
+	fi
+
+	if [ ! -d "/usr/local/etc/sickbeard" ]; then
+		mkdir -p "/usr/local/etc/sickbeard";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard" ]; then
+		mkdir -p "/usr/local/share/sickbeard";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/sickbeard" ]; then
+		mkdir -p "/usr/local/share/sickbeard/sickbeard";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/sickbeard/databases" ]; then
+		mkdir -p "/usr/local/share/sickbeard/sickbeard/databases";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/sickbeard/metadata" ]; then
+		mkdir -p "/usr/local/share/sickbeard/sickbeard/metadata";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/sickbeard/providers" ]; then
+		mkdir -p "/usr/local/share/sickbeard/sickbeard/providers";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/sickbeard/notifiers" ]; then
+		mkdir -p "/usr/local/share/sickbeard/sickbeard/notifiers";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/sickbeard/name_parser" ]; then
+		mkdir -p "/usr/local/share/sickbeard/sickbeard/name_parser";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/js" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/js";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/js/lib" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/js/lib";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/interfaces/default" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/interfaces/default";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/images" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/images";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/images/flags" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/images/flags";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/images/ico" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/images/ico";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/images/providers" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/images/providers";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/images/notifiers" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/images/notifiers";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/images/menu" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/images/menu";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/images/paypal" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/images/paypal";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/css" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/css";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/css/lib" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/css/lib";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/data/css/lib/images" ]; then
+		mkdir -p "/usr/local/share/sickbeard/data/css/lib/images";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/autoProcessTV" ]; then
+		mkdir -p "/usr/local/share/sickbeard/autoProcessTV";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/tests" ]; then
+		mkdir -p "/usr/local/share/sickbeard/tests";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_metadata" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_metadata";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_metadata/qt" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_metadata/qt";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/pynma" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/pynma";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/simplejson" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/simplejson";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/httplib2" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/httplib2";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/common" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/common";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/archive" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/archive";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/image" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/image";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/file_system" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/file_system";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/audio" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/audio";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/container" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/container";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/program" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/program";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/misc" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/misc";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/game" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/game";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/video" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/video";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_parser/network" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_parser/network";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/dateutil" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/dateutil";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/dateutil/zoneinfo" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/dateutil/zoneinfo";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/jsonrpclib" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/jsonrpclib";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/socks" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/socks";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/pythontwitter" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/pythontwitter";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/oauth2" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/oauth2";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/tvdb_api/tests" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/tvdb_api/tests";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/tvdb_api" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/tvdb_api";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/growl" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/growl";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_core/field" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_core/field";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_core" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_core";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/lib/hachoir_core/stream" ]; then
+		mkdir -p "/usr/local/share/sickbeard/lib/hachoir_core/stream";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/cherrypy" ]; then
+		mkdir -p "/usr/local/share/sickbeard/cherrypy";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/cherrypy/wsgiserver" ]; then
+		mkdir -p "/usr/local/share/sickbeard/cherrypy/wsgiserver";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/cherrypy/process" ]; then
+		mkdir -p "/usr/local/share/sickbeard/cherrypy/process";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/cherrypy/lib" ]; then
+		mkdir -p "/usr/local/share/sickbeard/cherrypy/lib";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/a1" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/a1";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/41" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/41";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/5b" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/5b";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/4e" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/4e";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/d3" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/d3";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/b7" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/b7";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/48" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/48";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/94" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/94";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/05" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/05";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/5c" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/5c";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/7b" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/7b";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/pack" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/pack";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/43" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/43";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/ce" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/ce";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/fc" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/fc";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/86" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/86";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/4d" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/4d";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/c8" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/c8";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/objects/a9" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/objects/a9";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/logs/refs/heads" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/logs/refs/heads";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/logs/refs/remotes/origin" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/logs/refs/remotes/origin";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/logs" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/logs";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/info" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/info";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/hooks" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/hooks";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/refs/heads" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/refs/heads";
+	fi
+
+	if [ ! -d "/usr/local/share/sickbeard/.git/refs/remotes/origin" ]; then
+		mkdir -p "/usr/local/share/sickbeard/.git/refs/remotes/origin";
+	fi
+
+fi

@@ -1,0 +1,433 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ ! -d "/etc/init.d" ]; then
+		mkdir -p "/etc/init.d";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones" ]; then
+		mkdir -p "/usr/local/share/headphones";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/mako" ]; then
+		mkdir -p "/usr/local/share/headphones/mako";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/mako/ext" ]; then
+		mkdir -p "/usr/local/share/headphones/mako/ext";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git" ]; then
+		mkdir -p "/usr/local/share/headphones/.git";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/refs/heads" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/refs/heads";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/refs/remotes/origin" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/refs/remotes/origin";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/info" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/info";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/hooks" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/hooks";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/logs" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/logs";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/logs/refs/heads" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/logs/refs/heads";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/logs/refs/remotes/origin" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/logs/refs/remotes/origin";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/06" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/06";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/15" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/15";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/86" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/86";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/50" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/50";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/27" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/27";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/ad" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/ad";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/c1" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/c1";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/6f" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/6f";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/91" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/91";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/5d" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/5d";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/9d" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/9d";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/cd" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/cd";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/1d" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/1d";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/e7" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/e7";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/77" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/77";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/2a" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/2a";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/pack" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/pack";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/fe" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/fe";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/17" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/17";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/25" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/25";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/e9" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/e9";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/31" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/31";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/.git/objects/bc" ]; then
+		mkdir -p "/usr/local/share/headphones/.git/objects/bc";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/cherrypy/process" ]; then
+		mkdir -p "/usr/local/share/headphones/cherrypy/process";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/cherrypy" ]; then
+		mkdir -p "/usr/local/share/headphones/cherrypy";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/cherrypy/wsgiserver" ]; then
+		mkdir -p "/usr/local/share/headphones/cherrypy/wsgiserver";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/cherrypy/lib" ]; then
+		mkdir -p "/usr/local/share/headphones/cherrypy/lib";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/cherrypy/scaffold" ]; then
+		mkdir -p "/usr/local/share/headphones/cherrypy/scaffold";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/cherrypy/scaffold/static" ]; then
+		mkdir -p "/usr/local/share/headphones/cherrypy/scaffold/static";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/headphones" ]; then
+		mkdir -p "/usr/local/share/headphones/headphones";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/treebuilders" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/treebuilders";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/tests" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/tests";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/tests/testdata/sniffer" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/tests/testdata/sniffer";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/tests/testdata/tokenizer" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/tests/testdata/tokenizer";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/tests/testdata/tree-construction" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/tests/testdata/tree-construction";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/tests/testdata/serializer" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/tests/testdata/serializer";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/tests/testdata/sanitizer" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/tests/testdata/sanitizer";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/tests/testdata/encoding" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/tests/testdata/encoding";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/serializer" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/serializer";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/treewalkers" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/treewalkers";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/html5lib/filters" ]; then
+		mkdir -p "/usr/local/share/headphones/html5lib/filters";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib" ]; then
+		mkdir -p "/usr/local/share/headphones/lib";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/httplib2" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/httplib2";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/apscheduler" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/apscheduler";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/apscheduler/jobstores" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/apscheduler/jobstores";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/apscheduler/triggers" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/apscheduler/triggers";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/apscheduler/triggers/cron" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/apscheduler/triggers/cron";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/pygazelle" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/pygazelle";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/pyItunes" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/pyItunes";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/beets" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/beets";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/beets/autotag" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/beets/autotag";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/beets/ui" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/beets/ui";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/beets/util" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/beets/util";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/mutagen" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/mutagen";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/simplejson" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/simplejson";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/musicbrainzngs" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/musicbrainzngs";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/urllib3" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/urllib3";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/urllib3/packages" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/urllib3/packages";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/urllib3/packages/ssl_match_hostname" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/urllib3/packages/ssl_match_hostname";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/chardet2" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/chardet2";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/chardet" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/chardet";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/oauthlib/oauth2" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/oauthlib/oauth2";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/oauthlib/oauth2/draft25" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/oauthlib/oauth2/draft25";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/oauthlib" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/oauthlib";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/oauthlib/oauth1" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/oauthlib/oauth1";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/lib/requests/packages/oauthlib/oauth1/rfc5849" ]; then
+		mkdir -p "/usr/local/share/headphones/lib/requests/packages/oauthlib/oauth1/rfc5849";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/bs4" ]; then
+		mkdir -p "/usr/local/share/headphones/bs4";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/bs4/builder" ]; then
+		mkdir -p "/usr/local/share/headphones/bs4/builder";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/default/css" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/default/css";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/default" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/default";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/default/images" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/default/images";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/default/js" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/default/js";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/default/js/libs" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/default/js/libs";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/default/js/fancybox" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/default/js/fancybox";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/remix" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/remix";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/classic" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/classic";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/css/theme" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/css/theme";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/css" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/css";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/css/libs" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/css/libs";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/js" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/js";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/js/libs" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/js/libs";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/js/noty" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/js/noty";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/js/noty/themes" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/js/noty/themes";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/js/noty/layouts" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/js/noty/layouts";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/Images" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/Images";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/interfaces/brink/fonts" ]; then
+		mkdir -p "/usr/local/share/headphones/data/interfaces/brink/fonts";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/js" ]; then
+		mkdir -p "/usr/local/share/headphones/data/js";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/js/libs" ]; then
+		mkdir -p "/usr/local/share/headphones/data/js/libs";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/images" ]; then
+		mkdir -p "/usr/local/share/headphones/data/images";
+	fi
+
+	if [ ! -d "/usr/local/share/headphones/data/css" ]; then
+		mkdir -p "/usr/local/share/headphones/data/css";
+	fi
+
+	if [ ! -d "/usr/local/etc/headphones" ]; then
+		mkdir -p "/usr/local/etc/headphones";
+	fi
+
+fi

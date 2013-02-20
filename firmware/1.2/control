@@ -1,0 +1,14 @@
+Origin: XBian
+Package: xbian-package-firmware
+Version: 1.2
+Section: firmware
+Essential: Yes
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Replacing: raspberrypi-artwork, raspberrypi-bootloader, libraspberrypi0, libraspberrypi-bin, libraspberrypi-dev, xbian-update (<=1.0-0.4)
+Conflicts: raspberrypi-artwork, raspberrypi-bootloader, libraspberrypi0, libraspberrypi-bin, libraspberrypi-dev, xbian-update (<=1.0-0.4)
+Recommends: xbian-package-kernel3.6.11 (>=1.2)
+Installed-Size: 15200
+Maintainer: CurlyMo <development@xbian.org>
+Description: Firmware for XBian.

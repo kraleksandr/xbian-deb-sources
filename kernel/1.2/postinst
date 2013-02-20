@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $1 == "configure" ]; then
+
+	cp /boot/kernel3_6_11.img /boot/kernel.img
+	depmod -a
+	
+	if [ -f "/boot/kernel3_6_11.img.xbian" ]; then
+		rm /boot/kernel3_6_11.img.xbian
+	fi
+	
+fi 

@@ -1,0 +1,11 @@
+Origin: XBian
+Package: xbian-package-sickbeard
+Version: 1.0
+Section: net
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Depends: python-cheetah
+Installed-Size: 15670
+Maintainer: CurlyMo <development@xbian.org>
+Description: Sickbeard compiled, patched and configured for XBian

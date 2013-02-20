@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [ $1 == "remove" ] || [ $1 == "purge" ]; then
+
+	/etc/init.d/couchpotato stop &>/dev/null
+	
+	if [ -f "/tmp/couchpotato.pid" ]; then
+		PID=$(cat /tmp/couchpotato.pid);
+		kill -0 $PID 2>/dev/null;
+		if [ $? -eq 0 ]; then
+				kill -9 $PID;
+				rm /tmp/couchpotato.pid
+		fi
+	fi
+	
+	if [ -f "/etc/init.d/couchpotato" ]; then
+		rm /etc/init.d/couchpotato &>/dev/null
+	fi
+	if [ -d "/usr/local/etc/couchpotato" ]; then
+		rm -r /usr/local/etc/couchpotato &>/dev/null
+	fi
+	if [ -d "/usr/local/share/couchpotato" ]; then
+		rm -r /usr/local/share/couchpotato &>/dev/null
+	fi
+	
+fi

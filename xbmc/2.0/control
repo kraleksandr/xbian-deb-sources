@@ -1,0 +1,12 @@
+Origin: XBian
+Package: xbian-package-xbmc
+Version: 2.0
+Section: video
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Replaces: xbian-package-xbmc (<=1.4)
+Depends: xbian-package-firmware (>=1.2)
+Installed-Size: 77750
+Maintainer: Koenkk <development@xbian.org>
+Description: XBMC for XBian.

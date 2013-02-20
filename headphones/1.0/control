@@ -1,0 +1,10 @@
+Origin: XBian
+Package: xbian-package-headphones
+Version: 1.0
+Section: net
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Installed-Size: 17530
+Maintainer: CurlyMo <development@xbian.org>
+Description: Headphones compiled, patched and configured for XBian

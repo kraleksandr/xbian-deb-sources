@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ ! -d "/etc/init.d" ]; then
+		mkdir -p "/etc/init.d";
+	fi
+
+	if [ ! -d "/usr/local/share/nzbget" ]; then
+		mkdir -p "/usr/local/share/nzbget";
+	fi
+
+	if [ ! -d "/usr/local/share/nzbget/webui" ]; then
+		mkdir -p "/usr/local/share/nzbget/webui";
+	fi
+
+	if [ ! -d "/usr/local/share/nzbget/webui/img" ]; then
+		mkdir -p "/usr/local/share/nzbget/webui/img";
+	fi
+
+	if [ ! -d "/usr/local/share/nzbget/webui/lib" ]; then
+		mkdir -p "/usr/local/share/nzbget/webui/lib";
+	fi
+
+	if [ ! -d "/usr/local/bin" ]; then
+		mkdir -p "/usr/local/bin";
+	fi
+
+	if [ ! -d "/usr/local/etc/nzbget" ]; then
+		mkdir -p "/usr/local/etc/nzbget";
+	fi
+
+fi

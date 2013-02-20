@@ -1,0 +1,10 @@
+Origin: XBian
+Package: xbian-package-couchpotato
+Version: 1.0
+Section: net
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Installed-Size: 20720
+Maintainer: CurlyMo <development@xbian.org>
+Description: Couchpotato compiled, patched and configured for XBian
