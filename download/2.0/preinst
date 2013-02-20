@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ -d /home/xbian/sickbeard ]; then
+		rm -r /home/xbian/sickbeard &>/dev/null
+	fi
+	
+	if [ -d /home/xbian/couchpotato ]; then
+		rm -r "/home/xbian/couchpotato" &>/dev/null
+	fi
+	
+	if [ -d /home/xbian/headphones ]; then
+		rm -r /home/xbian/headphones &>/dev/null
+	fi
+	
+	if [ -d /home/xbian/.config ]; then
+		rm -r /home/xbian/.config &>/dev/null
+	fi	
+	
+	if [ -d /home/xbian/.couchpotato/ ] || [ -L /home/xbian/.couchpotato ]; then
+		rm -r /home/xbian/.couchpotato &>/dev/null
+	fi
+	
+	if [ -d /etc/transmission-daemon ]; then
+		rm -r /etc/transmission-daemon &>/dev/null
+	fi
+	
+	if [ -f /etc/default/transmission-daemon ]; then
+		rm -r /etc/default/transmission-daemon &>/dev/null
+	fi	
+	
+	if [ -f /etc/init.d/transmission-daemon ]; then
+		rm -r /etc/init.d/transmission-daemon &>/dev/null
+	fi
+	
+fi

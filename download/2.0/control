@@ -1,0 +1,12 @@
+Origin: XBian
+Package: xbian-package-download
+Version: 2.0
+Section: web
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Depends: xbian-package-nzbget (>=1.0), xbian-package-transmission (>=1.0), xbian-package-headphones (>=1.0), xbian-package-sickbeard (>=1.0), xbian-package-couchpotato (>=1.0)
+Conflicts: xbian-package-download (=1.0)
+Installed-Size: 1
+Maintainer: CurlyMo <development@xbian.org>
+Description: Torrent + Newserver download managers.
