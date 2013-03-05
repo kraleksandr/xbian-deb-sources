@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ -f "/boot/.firmware_revision" ]; then
+		mv /boot/.firmware_revision /boot/.firmware_revision.xbian
+	fi
+	
+	if [ -f "/boot/bootcode.bin" ]; then
+		mv /boot/bootcode.bin /boot/bootcode.bin.xbian
+	fi
+	
+	if [ -f "/boot/fixup.dat" ]; then
+		mv /boot/fixup.dat /boot/fixup.dat.xbian
+	fi
+	
+	if [ -f "/boot/start.elf" ]; then
+		mv /boot/start.elf /boot/start.elf.xbian
+	fi
+fi
