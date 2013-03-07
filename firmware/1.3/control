@@ -6,8 +6,8 @@ Essential: Yes
 Priority: optional
 Codename: wheezy
 Architecture: armhf
-Replacing: raspberrypi-artwork, raspberrypi-bootloader, libraspberrypi0, libraspberrypi-bin, libraspberrypi-dev
-Conflicts: raspberrypi-artwork, raspberrypi-bootloader, libraspberrypi0, libraspberrypi-bin, libraspberrypi-dev
+Replacing: raspberrypi-artwork, raspberrypi-bootloader, libraspberrypi0, libraspberrypi-bin, libraspberrypi-dev, xbian-update (<=1.0-0.4)
+Conflicts: raspberrypi-artwork, raspberrypi-bootloader, libraspberrypi0, libraspberrypi-bin, libraspberrypi-dev, xbian-update (<=1.0-0.4)
 Recommends: xbian-package-kernel3.6.11 (>=1.2)
 Installed-Size: 7760
 Maintainer: Koenkk <development@xbian.org>

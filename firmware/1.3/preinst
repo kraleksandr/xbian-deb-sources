@@ -129,4 +129,5 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 	if [ ! -d "/boot" ]; then
 		mkdir -p "/boot";
 	fi
+
 fi
