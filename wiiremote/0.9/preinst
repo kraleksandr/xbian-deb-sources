@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ ! -d "/etc/init.d" ]; then
+		mkdir -p "/etc/init.d";
+	fi
+
+	if [ ! -d "/usr/local/bin" ]; then
+		mkdir -p "/usr/local/bin";
+	fi
+
+	if [ ! -d "/usr/local/lib" ]; then
+		mkdir -p "/usr/local/lib";
+	fi
+
+fi

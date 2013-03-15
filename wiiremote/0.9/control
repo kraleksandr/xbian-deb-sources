@@ -1,0 +1,11 @@
+Origin: XBian
+Package: xbian-package-wiiremote
+Version: 0.9
+Section: utility
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Installed-Size: 90
+Depends: xbmc-eventclients-common, libbluetooth3, python-support
+Maintainer: Koenkk <development@xbian.org>
+Description: Wiiremote support for XBMC
