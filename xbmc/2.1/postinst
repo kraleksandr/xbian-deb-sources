@@ -3,6 +3,8 @@
 if [[ $1 == "configure" ]]; then
 
 	cp -R /opt/cec/usr/* /usr
+	ldconfig
+        rm -rf /opt/cec
 	/etc/init.d/xbmc start 1>/dev/null 2>/dev/null >/dev/null
 
 fi
