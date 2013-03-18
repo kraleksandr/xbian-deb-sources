@@ -5,7 +5,7 @@ Section: video
 Priority: optional
 Codename: wheezy
 Architecture: armhf
-Depends: xbian-package-firmware (>=1.3)
+Depends: xbian-package-firmware (>=1.3), libbluetooth3
 Installed-Size: 131150
 Maintainer: Koenkk <development@xbian.org>
 Description: XBMC for XBian.
