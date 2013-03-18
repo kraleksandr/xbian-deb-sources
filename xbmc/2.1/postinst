@@ -2,8 +2,7 @@
 
 if [[ $1 == "configure" ]]; then
 
-	chmod +x /etc/init.d/xbmc
-	chmod +x /usr/local/lib/xbmc/xbmc.bin
+	cp -R /opt/cec/usr/* /usr
 	/etc/init.d/xbmc start 1>/dev/null 2>/dev/null >/dev/null
 
 fi
