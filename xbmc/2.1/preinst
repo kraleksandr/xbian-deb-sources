@@ -2,8 +2,7 @@
 
 if [ $1 == "install" -o $1 == "upgrade" ]; then
 	
-	ps cax | grep xbmc > /dev/null
-	if [ $? -eq 0 ]; then
+	if [ $(pgrep xbmc.bin | wc -l) -eq 1 ]; then
 		/etc/init.d/xbmc stop 1>/dev/null 2>/dev/null >/dev/null
 		touch /tmp/startxbmc
 	fi
