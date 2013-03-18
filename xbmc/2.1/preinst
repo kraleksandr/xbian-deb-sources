@@ -1,9 +1,13 @@
 #!/bin/bash
 
 if [ $1 == "install" -o $1 == "upgrade" ]; then
-
-        /etc/init.d/xbmc stop 1>/dev/null 2>/dev/null >/dev/null
-
+	
+	ps cax | grep xbmc > /dev/null
+	if [ $? -eq 0 ]; then
+		/etc/init.d/xbmc stop 1>/dev/null 2>/dev/null >/dev/null
+		touch /tmp/startxbmc
+	fi
+        
 	if [ ! -d "/etc/init.d" ]; then
 		mkdir -p "/etc/init.d";
 	fi
