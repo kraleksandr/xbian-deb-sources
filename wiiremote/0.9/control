@@ -6,6 +6,6 @@ Priority: optional
 Codename: wheezy
 Architecture: armhf
 Installed-Size: 90
-Depends: xbmc-eventclients-common, libbluetooth3, python-support
+Depends: xbmc-eventclients-common, libbluetooth3, python-support, xbian-package-xbmc (>=2.1)
 Maintainer: Koenkk <development@xbian.org>
 Description: Wiiremote support for XBMC

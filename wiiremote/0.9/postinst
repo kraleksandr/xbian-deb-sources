@@ -2,8 +2,8 @@
 
 if [ $1 == "configure" ]; then
 
-	update-rc.d xbmc-wiimote defaults
-	
-	service xbmc-wiimote start
-	
+	update-rc.d xbmc-wiiremote defaults
+	service xbmc start
+	service xbmc-wiiremote start
+
 fi

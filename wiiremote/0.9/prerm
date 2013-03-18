@@ -1,25 +1,19 @@
 #!/bin/bash
 
 if [ $1 == "remove" ]; then
-	
-	if [ -f "/boot/.firmware_revision" ]; then
-		rm /boot/.firmware_revision
+
+	update-rc.d xbmc-wiiremote remove
+
+	if [ -f /etc/init.d/xbmc-wiiremote ]; then
+		rm /etc/init.d/xbmc-wiiremote;
 	fi
-	
-	if [ -f "/boot/bootcode.bin" ]; then
-		rm /boot/bootcode.bin
+
+	if [ -d /usr/local/bin/xbmc-wiiremote ]; then
+		rm -r /usr/local/bin/xbmc-wiiremote;
 	fi
-	
-	if [ -f "/boot/fixup.dat" ]; then
-		rm /boot/fixup.dat
+
+	if [ -d /usr/local/lib/libwiiuse.so ]; then
+		rm -r /usr/local/lib/libwiiuse.so;
 	fi
-	
-	if [ -f "/boot/start.elf" ]; then
-		rm /boot/start.elf
-	fi
-	
-	if [ -d "/opt/vc" ]; then
-		rm -r /opt/vc
-	fi
-	
+
 fi
