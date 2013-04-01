@@ -1,7 +1,12 @@
 #!/bin/bash
 
 if [ $1 == "configure" ]; then
-	cp /usr/local/share/maraschino/init.d /etc/init.d/maraschino
-	cp /usr/local/share/maraschino/default /etc/default/maraschino
-	chmod a+x /etc/init.d/maraschino
-	chmod 775 /usr/local/share
+
+	update-rc.d maraschino defaults &>/dev/null
+
+	chmod 777 /usr/local/share/maraschino
+	chmod 777 /usr/local/etc/maraschino
+	
+	/etc/init.d/maraschino start &>/dev/null
+
+fi
