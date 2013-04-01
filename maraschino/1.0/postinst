@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $1 == "configure" ]; then
+	cp /usr/local/share/maraschino/init.d /etc/init.d/maraschino
+	cp /usr/local/share/maraschino/default /etc/default/maraschino
+	chmod a+x /etc/init.d/maraschino
+	chmod 775 /usr/local/share
