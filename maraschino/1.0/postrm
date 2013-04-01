@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $1 == "remove" ] || [ $1 == "purge" ]; then
+        
+        /etc/init.d/maraschino stop &>/dev/null
+        if [ -f "/temp/maraschino.pid" ]; then
+                PID=$(cat /tmp/maraschino.pid);
+                kill -0 $PID 2>/dev/null;
+                if [$? -eq 0 ]; then
+                    kill -9 $PID;
+                    rm /tmp/maraschino.pid
+                fi
+        fi
+       
+        if [ -f "/etc/init.d/maraschino" ]; then
+                rm /etc/init.d/maraschino &/dev/null
+        fi
+	if [ -d "/usr/local/etc/maraschino" ]; then
+		rm -r /usr/local/etc/maraschino &>/dev/null
+	fi
+	if [ -d "/usr/local/share/maraschino" ]; then
+		rm -r /usr/local/share/maraschino &>/dev/null
+	fi
+
+fi
