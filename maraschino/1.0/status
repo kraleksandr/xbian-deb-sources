@@ -1892,4 +1892,4 @@ A	/usr/local/share/maraschino/static/less/module.less
 A	/usr/local/share/maraschino/static/less/module-search.less
 A	/usr/local/share/maraschino/initd
 A	/usr/local/share/maraschino/Maraschino.py
-a       /usr/local/etc/maraschino
+A       /usr/local/etc/maraschino
