@@ -1,4 +1,5 @@
 A	etc/init.d/maraschino
+A	etc/default/maraschino
 A	usr/local/share/maraschino/LICENSE
 A	usr/local/share/maraschino/README.md
 A	usr/local/share/maraschino/lib/utorrentclient/utorrent.py
@@ -652,7 +653,7 @@ A	usr/local/share/maraschino/static/images/weather/Sunny.png
 A	usr/local/share/maraschino/static/images/weather/Overcast.png
 A	usr/local/share/maraschino/static/images/weather/NE.png
 A	usr/local/share/maraschino/static/images/weather/Snow.png
-A	usr/local/share/maraschino/static/images/weather/Rain
+A	usr/local/share/maraschino/static/images/weather/Rain\ and\ Snow.png
 A	usr/local/share/maraschino/static/images/weather/Storm.png
 A	usr/local/share/maraschino/static/images/weather/Rain.png
 A	usr/local/share/maraschino/static/images/weather/SW.png
@@ -660,7 +661,7 @@ A	usr/local/share/maraschino/static/images/weather/NW.png
 A	usr/local/share/maraschino/static/images/weather/SE.png
 A	usr/local/share/maraschino/static/images/weather/S.png
 A	usr/local/share/maraschino/static/images/weather/Fog.png
-A	usr/local/share/maraschino/static/images/weather/Partly
+A	usr/local/share/maraschino/static/images/weather/Partly\ Sunny.png
 A	usr/local/share/maraschino/static/images/weather/E.png
 A	usr/local/share/maraschino/static/images/weather/N.png
 A	usr/local/share/maraschino/static/images/weather/Thunderstorm.png
@@ -802,4 +803,3 @@ A	usr/local/share/maraschino/static/less/module.less
 A	usr/local/share/maraschino/static/less/module-search.less
 A	usr/local/share/maraschino/initd
 A	usr/local/share/maraschino/Maraschino.py
-A	usr/local/etc/maraschino

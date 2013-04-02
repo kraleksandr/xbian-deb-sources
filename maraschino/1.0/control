@@ -6,5 +6,5 @@ Priority: optional
 Codename: wheezy
 Architecture: armhf
 Installed-Size: 34164
-Maintainer: 
-Description:  Marschino compiled, patched and configured for XBian
+Maintainer: Trinket
+Description:  Maraschino compiled, patched and configured for XBian

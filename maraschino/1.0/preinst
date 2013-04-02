@@ -725,7 +725,7 @@ if[ $1 == "install" -o $1 == "upgrade" ]; then
 		mkdir -p "/usr/local/share/maraschino/static/less/mobile/lib/images";
 	fi
 
-	if [ ! -d "/usr/local/etc/maraschino" ]; then
-		mkdir -p "/usr/local/etc/maraschino";
+	if [ ! -d "/etc/default" ]; then
+		mkdir -p "/etc/default";
 	fi
 fi

@@ -4,7 +4,7 @@ if [ $1 == "configure" ]; then
 
 	update-rc.d maraschino defaults &>/dev/null
 
-	chmod 777 /usr/local/etc/maraschino
+	chmod 750 /etc/default/maraschino
 	
 	/etc/init.d/maraschino start &>/dev/null
 
