@@ -1,3 +1,5 @@
+67ba9f22f65e2aedb4e4b60bab3d9cf7  etc/default/maraschino
+e598fc3eedbff3855f47184e36d950be  etc/init.d/maraschino
 082f85dbb3ca9b57119e57796dfbcbae  usr/local/share/maraschino/LICENSE
 5052516b8419b043d09494c00ca3c8dd  usr/local/share/maraschino/README.md
 fd0649b6e2452e0c46e7219f373bf5e7  usr/local/share/maraschino/lib/utorrentclient/utorrent.py
