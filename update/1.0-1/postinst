@@ -1,0 +1,97 @@
+#!/bin/bash
+
+if [ $1 == "configure" ]; then
+
+	rm /home/xbian/update.log &>/dev/null
+
+	/usr/bin/splash --infinitebar --msgtxt="installing update..."
+
+	echo "3) Changing default overclock"
+
+	if [ $(cat /boot/config.txt | grep "core_freq=375" | wc -l) -eq 1 ];	then
+		sed -i 's/core_freq=375/core_freq=250/g' /boot/config.txt
+		if [ $(cat /boot/config.txt | grep "core_freq=250" | wc -l) -eq 1 ];	then
+			echo "Success: changed core_freq to 250" >> /home/xbian/update.log; 
+		else
+			echo "Error: failed to set core_freq to 250" >> /home/xbian/update.log; 
+		fi
+	else
+		echo "Notice: core_freq 250 memsplit already set" >> /home/xbian/update.log; 
+	fi
+
+	echo "4) Applying patches"
+
+	if [ $(grep "<fanartres>540</fanartres>" /etc/motd | wc -l) -le 1 && $(grep "<imageres>256</imageres>" /etc/motd | wc -l) -le 1 ]; then
+
+cat <<\EOF > /tmp/001-advancedettings.xml.patch
+--- a/home/xbian/.xbmc/userdata/advancedsettings.xml	
++++ b/home/xbian/.xbmc/userdata/advancedsettings.xml
+@@ -2,8 +2,8 @@
+    <network>
+         <cachemembuffersize>20971520</cachemembuffersize>
+    </network>
+-   <fanartres>540</fanartres>
+-   <imageres>256</imageres>
++   <fanartres>720</fanartres>
++   <imageres>540</imageres>
+    <cputempcommand>echo "$(/opt/vc/bin/vcgencmd measure_temp | grep -o "[0-9]\{2\}") C"</cputempcommand>
+    <gputempcommand>echo "$(/opt/vc/bin/vcgencmd measure_temp | grep -o "[0-9]\{2\}") C"</gputempcommand>
+    <lookandfeel>  
+
+EOF
+
+	patch --dry-run /home/xbian/.xbmc/userdata/advancedsettings.xml < /tmp/001-advancedettings.xml.patch 2>/dev/null >/dev/null;
+	if [ $? == 0 ]; then
+		patch /home/xbian/.xbmc/userdata/advancedsettings.xml < /tmp/001-advancedettings.xml.patch 2>/dev/null >/dev/null;
+		echo "Success: applied 001-advancedettings.xml.patch" >> /home/xbian/update.log;
+	else
+		echo "Notice: 001-advancedettings.xml.patch already applied" >> /home/xbian/update.log;
+	fi;
+
+cat <<\EOF > /tmp/002-sources.xml.patch
+--- a/home/xbian/.xbmc/userdata/sources.xml	
++++ b/home/xbian/.xbmc/userdata/sources.xml	
+@@ -1,10 +1,8 @@
+ <sources>
+ <files>
+     <default pathversion="1"></default>
+-    <source>
+-        <name>XBMC HUB Fusion</name>
+-        <path pathversion="1">http://fusion.xbmchub.com/</path>
+-    </source>
++        <name>SuperRepo.org Virtual Disk</name>
++        <path pathversion="1">http://use.superrepo.org/Frodo</path>
+     <source>
+         <name>Root filesystem</name>
+         <path pathversion="1">/</path> 
+
+EOF
+
+	patch --dry-run /home/xbian/.xbmc/userdata/sources.xml < /tmp/002-sources.xml.patch 2>/dev/null >/dev/null;
+	if [ $? == 0 ]; then
+		patch /home/xbian/.xbmc/userdata/sources.xml < /tmp/002-sources.xml.patch 2>/dev/null >/dev/null;
+		echo "Success: applied 002-sources.xml.patch" >> /home/xbian/update.log;
+	else
+		echo "Notice: 002-sources.xml.patch already applied" >> /home/xbian/update.log;
+	fi;
+
+
+	ldconfig &>/dev/null
+
+	if [ -f "/etc/init.d/bootlocal" ]; then
+		rm -r "/etc/init.d/bootlocal";
+	fi
+	
+	$((/usr/bin/splash --infinitebar --msgtxt="reboot in 2 minutes..."; sleep 120; sudo reboot) &);
+	
+	
+	echo "!------------------------------------------------!"
+	echo "!                                                !"
+	echo "!  Please reboot for the changes to take effect  !"
+	echo "!                                                !"
+	echo "!------------------------------------------------!"
+
+	echo "---UPDATE LOG---"
+	cat "/home/xbian/update.log"
+
+fi 
