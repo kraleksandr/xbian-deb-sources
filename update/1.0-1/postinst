@@ -76,7 +76,7 @@ if [ $1 == "configure" ]; then
 
 	if [ $(grep "run_watchdog=1"  /etc/default/watchdog| wc -l) -eq 1 ];	then
 		sed -i 's:run_watchdog=1:run_watchdog=0:g' /etc/default/watchdog
-        update-rc.d watchdog defaults &>/dev/null
+        update-rc.d watchdog remove &>/dev/null
 		if [ $(grep "run_watchdog=0" /etc/default/watchdog| wc -l) -eq 1 ];	then
 			echo "Success: disabled watchdog" >> /home/xbian/update.log; 
 		else
