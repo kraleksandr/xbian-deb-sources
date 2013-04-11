@@ -184,7 +184,18 @@ if [ $1 == "configure" ]; then
         echo "Notice: wpa_supplicant functions.sh already adjusted" >> /home/xbian/update.log;
     fi
 
-	echo "15) Applying patches"
+    echo "15) Enable zram-swap init script"
+
+    if [ -f "/etc/init.d/zram-swap" ];	then
+        chmod +x /etc/init.d/zram-swap;
+        update-rc.d zram-swap defaults &>/dev/null;
+        echo "Success: enable zram-swap init script" >> /home/xbian/update.log;
+    fi
+    else
+        echo "Error: enable zram-swap init script" >> /home/xbian/update.log;
+    fi
+
+	echo "16) Applying patches"
 
 cat <<\EOF > /tmp/001-tmpfs.patch
 --- a/etc/default/tmpfs
