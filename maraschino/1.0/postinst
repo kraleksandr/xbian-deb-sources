@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $1 == "configure" ]; then
+
+	update-rc.d maraschino defaults &>/dev/null
+
+	chmod 750 /etc/default/maraschino
+	
+	/etc/init.d/maraschino start &>/dev/null
+
+fi
