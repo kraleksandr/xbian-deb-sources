@@ -195,7 +195,12 @@ if [ $1 == "configure" ]; then
         echo "Error: enable zram-swap init script" >> /home/xbian/update.log;
     fi
 
-	echo "16) Applying patches"
+    echo "16) Remove klogd & sysklogd from update-rc.d"
+    update-rc.d klogd remove &>/dev/null;
+    update-rc.d sysklogd remove &>/dev/null;
+
+
+	echo "17) Applying patches"
 
 cat <<\EOF > /tmp/001-tmpfs.patch
 --- a/etc/default/tmpfs
