@@ -7,13 +7,19 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 	if [ -f /etc/lirc/lircd.conf ]; then
 		mv --backup=t /etc/lirc/lircd.conf /etc/lirc/lircd.conf.xbian
 	fi
+
 	if [ -f /etc/lirc/hardware.conf ]; then
 		mv --backup=t /etc/lirc/hardware.conf /etc/lirc/hardware.conf.xbian
 	fi
+
 	if [ -f /etc/lirc/lircmd.conf ]; then
 		mv --backup=t /etc/lirc/lircmd.conf /etc/lirc/lircmd.conf.xbian
 	fi
-	
+
+	if [ ! -d "/etc/init.d" ]; then
+		mkdir -p "/etc/init.d";
+	fi
+
 	if [ ! -d "/etc/lirc" ]; then
 		mkdir -p "/etc/lirc";
 	fi
@@ -26,14 +32,6 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 		mkdir -p "/etc/lirc/remotes";
 	fi
 
-	if [ ! -d "/etc/init.d" ]; then
-		mkdir -p "/etc/init.d";
-	fi
-
-	if [ ! -d "/usr/local/sbin" ]; then
-		mkdir -p "/usr/local/sbin";
-	fi
-
 	if [ ! -d "/usr/local/lib" ]; then
 		mkdir -p "/usr/local/lib";
 	fi
@@ -42,8 +40,12 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 		mkdir -p "/usr/local/include/lirc";
 	fi
 
+	if [ ! -d "/usr/local/sbin" ]; then
+		mkdir -p "/usr/local/sbin";
+	fi
+
 	if [ ! -d "/usr/local/bin" ]; then
 		mkdir -p "/usr/local/bin";
 	fi
 
-fi 
+fi
