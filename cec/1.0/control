@@ -1,0 +1,11 @@
+Origin: XBian
+Package: xbian-package-cec
+Version: 1.0
+Section: utils
+Priority: optional
+Codename: wheezy
+Architecture: armhf
+Depends: xbian-update (>=1.0-1), udev (>=175-7.1), liblockdev1 (>=1.0.3-1.5)
+Installed-Size: 9760
+Maintainer: Koenkk <development@xbian.org>
+Description: XBMC for XBian.

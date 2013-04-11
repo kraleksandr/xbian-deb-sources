@@ -1,0 +1,11 @@
+A	usr/local/bin/cec-client
+A	usr/local/include/libcec/cec.h
+A	usr/local/include/libcec/cecloader.h
+A	usr/local/include/libcec/cectypes.h
+A	usr/local/include/libcec/cecc.h
+A	usr/local/lib/libcec.a
+A	usr/local/lib/libcec.la
+A	usr/local/lib/libcec.so
+A	usr/local/lib/libcec.so.2
+A	usr/local/lib/libcec.so.2.0.1
+A	usr/local/lib/pkgconfig/libcec.pc
