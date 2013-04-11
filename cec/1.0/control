@@ -8,4 +8,4 @@ Architecture: armhf
 Depends: xbian-update (>=1.0-1), udev (>=175-7.1), liblockdev1 (>=1.0.3-1.5)
 Installed-Size: 9760
 Maintainer: Koenkk <development@xbian.org>
-Description: XBMC for XBian.
+Description: cec for XBian.
