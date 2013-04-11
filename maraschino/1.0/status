@@ -582,10 +582,8 @@ A	usr/local/share/maraschino/modules/sabnzbd.py
 A	usr/local/share/maraschino/modules/sickbeard.py
 A	usr/local/share/maraschino/modules/couchpotato.py
 A	usr/local/share/maraschino/modules/remote.py
-A	usr/local/share/maraschino/preinst
 A	usr/local/share/maraschino/AUTHORS
 A	usr/local/share/maraschino/default
-A	usr/local/share/maraschino/md5sum.dat
 A	usr/local/share/maraschino/mobile.py
 A	usr/local/share/maraschino/maraschino/noneditable.py
 A	usr/local/share/maraschino/maraschino/Logger.py
@@ -596,7 +594,6 @@ A	usr/local/share/maraschino/maraschino/tools.py
 A	usr/local/share/maraschino/maraschino/updater.py
 A	usr/local/share/maraschino/maraschino/models.py
 A	usr/local/share/maraschino/.gitignore
-A	usr/local/share/maraschino/status
 A	usr/local/share/maraschino/static/images/wanted-banner.png
 A	usr/local/share/maraschino/static/images/snatched.png
 A	usr/local/share/maraschino/static/images/keyb_active.gif
@@ -653,7 +650,7 @@ A	usr/local/share/maraschino/static/images/weather/Sunny.png
 A	usr/local/share/maraschino/static/images/weather/Overcast.png
 A	usr/local/share/maraschino/static/images/weather/NE.png
 A	usr/local/share/maraschino/static/images/weather/Snow.png
-A	usr/local/share/maraschino/static/images/weather/Rain\ and\ Snow.png
+A	usr/local/share/maraschino/static/images/weather/Rain and Snow.png
 A	usr/local/share/maraschino/static/images/weather/Storm.png
 A	usr/local/share/maraschino/static/images/weather/Rain.png
 A	usr/local/share/maraschino/static/images/weather/SW.png
@@ -661,7 +658,7 @@ A	usr/local/share/maraschino/static/images/weather/NW.png
 A	usr/local/share/maraschino/static/images/weather/SE.png
 A	usr/local/share/maraschino/static/images/weather/S.png
 A	usr/local/share/maraschino/static/images/weather/Fog.png
-A	usr/local/share/maraschino/static/images/weather/Partly\ Sunny.png
+A	usr/local/share/maraschino/static/images/weather/Partly Sunny.png
 A	usr/local/share/maraschino/static/images/weather/E.png
 A	usr/local/share/maraschino/static/images/weather/N.png
 A	usr/local/share/maraschino/static/images/weather/Thunderstorm.png

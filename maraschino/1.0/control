@@ -1,10 +1,10 @@
 Origin: XBian
-Package: xbian-package-Maraschino
+Package: xbian-package-maraschino
 Version: 1.0
 Section: net
 Priority: optional
 Codename: wheezy
 Architecture: armhf
-Installed-Size: 34164
+Installed-Size: 33280
 Maintainer: Trinket
-Description:  Maraschino compiled, patched and configured for XBian
+Description: Maraschino compiled, patched and configured for XBian
