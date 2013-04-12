@@ -2,7 +2,6 @@ A	etc/inittab
 A	etc/default/console-setup
 A	etc/init.d/zram-swap
 A	etc/motd
-A	etc/rc.local
 A	usr/bin/splash
 A	usr/bin/splash.fonts
 A	usr/bin/splash.images
