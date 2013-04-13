@@ -48,7 +48,7 @@ if [ $1 == "configure" ]; then
 	echo "6) Adding SuperRepo"
 
 	if [ $(grep "<name>SuperRepo.org Virtual Disk</name>" /home/xbian/.xbmc/userdata/sources.xml| wc -l) -eq 0 ];	then
-        sed -i 's|<files>|<files>\n\t<default pathversion="1">\n\t\t<name>SuperRepo.org Virtual Disk</name>\n\t\t<path pathversion="1">http://use.superrepo.org/Frodo</path>|g' /home/xbian/.xbmc/userdata/sources.xml
+        sed -i 's|<files>|<files>\n\t<default pathversion="1"></default>\n\t\t<name>SuperRepo.org Virtual Disk</name>\n\t\t<path pathversion="1">http://use.superrepo.org/Frodo</path>|g' /home/xbian/.xbmc/userdata/sources.xml
 		if [ $(grep "<name>SuperRepo.org Virtual Disk</name>" /home/xbian/.xbmc/userdata/sources.xml| wc -l) -eq 1 ];	then
 			echo "Success: changed Fusion to SuperRepo" >> /home/xbian/update.log; 
 		else
