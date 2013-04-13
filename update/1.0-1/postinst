@@ -260,17 +260,16 @@ EOF
 		update-rc.d bootlocal remove &>/dev/null
 		rm -r "/etc/init.d/bootlocal";
 	fi
-	
-	$((/usr/bin/splash --infinitebar --msgtxt="reboot in 30 seconds..."; sleep 30; sudo reboot) &);
-	
-	
+
 	echo "!------------------------------------------------!"
 	echo "!                                                !"
-	echo "!  Please reboot for the changes to take effect  !"
+	echo "! System will automatically reboot in 30 seconds !"
 	echo "!                                                !"
 	echo "!------------------------------------------------!"
 
 	echo "---UPDATE LOG---"
 	cat "/home/xbian/update.log"
-
+	
+	$((/usr/bin/splash --infinitebar --msgtxt="reboot in 30 seconds..."; sleep 30; sudo reboot) &);
+	
 fi 
