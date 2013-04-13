@@ -115,7 +115,7 @@ if [ $1 == "configure" ]; then
 
     echo "10) Symlink /usr/lib/vfp to /opt/vc/lib"
 
-    if [ -L "/usr/lib/vfp" ];	then
+    if [ -f "/usr/lib/vfp" ];	then
         rm /usr/lib/vfp
         if [ -f "/usr/lib/vfp" ];	then
             echo "Error: failed to remove /usr/lib/vfp" >> /home/xbian/update.log;
@@ -123,7 +123,7 @@ if [ $1 == "configure" ]; then
     fi
 
     ln -s /opt/vc/lib /usr/lib/vfp
-    if [ -f "/usr/lib/vfp" ];	then
+    if [ -L "/usr/lib/vfp" ];	then
         echo "Success: symlinked /usr/lib/vfp to /opt/vc/lib" >> /home/xbian/update.log;
     else
         echo "Failed: to symlink /usr/lib/vfp to /opt/vc/lib" >> /home/xbian/update.log;
