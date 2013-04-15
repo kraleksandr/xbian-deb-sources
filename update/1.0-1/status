@@ -1,4 +1,5 @@
 A	etc/inittab
+A	etc/fstab.btrfs
 A	etc/default/console-setup
 A	etc/init.d/zram-swap
 A	etc/motd
