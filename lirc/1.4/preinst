@@ -16,6 +16,10 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 		mv --backup=t /etc/lirc/lircmd.conf /etc/lirc/lircmd.conf.xbian
 	fi
 
+	if [ ! -d "/etc/default" ]; then
+		mkdir -p "/etc/default";
+	fi
+
 	if [ ! -d "/etc/init.d" ]; then
 		mkdir -p "/etc/init.d";
 	fi
@@ -32,16 +36,36 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 		mkdir -p "/etc/lirc/remotes";
 	fi
 
+	if [ ! -d "/lib/udev/rules.d" ]; then
+		mkdir -p "/lib/udev/rules.d";
+	fi
+
 	if [ ! -d "/usr/local/lib" ]; then
 		mkdir -p "/usr/local/lib";
+	fi
+
+	if [ ! -d "/usr/lib/iguanaIR" ]; then
+		mkdir -p "/usr/lib/iguanaIR";
+	fi
+
+	if [ ! -d "/usr/lib" ]; then
+		mkdir -p "/usr/lib";
 	fi
 
 	if [ ! -d "/usr/local/include/lirc" ]; then
 		mkdir -p "/usr/local/include/lirc";
 	fi
 
+	if [ ! -d "/usr/include" ]; then
+		mkdir -p "/usr/include";
+	fi
+
 	if [ ! -d "/usr/local/sbin" ]; then
 		mkdir -p "/usr/local/sbin";
+	fi
+
+	if [ ! -d "/usr/bin" ]; then
+		mkdir -p "/usr/bin";
 	fi
 
 	if [ ! -d "/usr/local/bin" ]; then

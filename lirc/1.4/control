@@ -8,6 +8,6 @@ Codename: wheezy
 Architecture: armhf
 Replaces: xbian-package-lirc (<=1.3)
 Conflicts: lirc
-Installed-Size: 2220
+Installed-Size: 2510
 Maintainer: Koenkk <development@xbian.org>
 Description: Remote controller deamon.

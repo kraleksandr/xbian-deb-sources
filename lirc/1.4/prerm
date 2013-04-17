@@ -84,6 +84,38 @@ if [ $1 == "remove" ]; then
 		rm -r /etc/lirc/hardware.conf;
 	fi
 
+	if [ -f /etc/default/iguanaIR ]; then
+		rm  /etc/default/iguanaIR;
+	fi
+
+	if [ -f /etc/init.d/iguanaIR ]; then
+		rm /etc/init.d/iguanaIR;
+	fi
+
+	if [ -f /lib/udev/rules.d/80-iguanaIR.rules ]; then
+		rm /lib/udev/rules.d/80-iguanaIR.rules;
+	fi
+
+	if [ -f /usr/lib/iguanaIR/libusb.so ]; then
+		rm /usr/lib/iguanaIR/libusb.so;
+	fi
+
+	if [ -f /usr/lib/libiguanaIR.so ]; then
+		rm /usr/lib/libiguanaIR.so;
+	fi
+
+	if [ -f /usr/include/iguanaIR.h ]; then
+		rm /usr/include/iguanaIR.h;
+	fi
+
+	if [ -f /usr/bin/igclient ]; then
+		rm /usr/bin/igclient;
+	fi
+
+	if [ -f /usr/bin/igdaemon ]; then
+		rm /usr/bin/igdaemon;
+	fi
+
 fi
 
 if [ $1 == "upgrade" ]; then
