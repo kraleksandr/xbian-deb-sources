@@ -1,4 +1,6 @@
+A	etc/default/iguanaIR
 A	etc/init.d/lirc
+A	etc/init.d/iguanaIR
 A	etc/lirc/lircd.conf
 A	etc/lirc/hardware/logitech_ultrax.conf
 A	etc/lirc/hardware/custom.conf
@@ -21,12 +23,18 @@ A	etc/lirc/remotes/xbox.conf
 A	etc/lirc/remotes/smt1000t.conf
 A	etc/lirc/lircmd.conf
 A	etc/lirc/hardware.conf
+A	lib/udev/rules.d/80-iguanaIR.rules
 A	usr/local/lib/liblirc_client.la
 A	usr/local/lib/liblirc_client.a
 A	usr/local/lib/liblirc_client.so.0.2.1
+A	usr/lib/iguanaIR/libusb.so
+A	usr/lib/libiguanaIR.so
 A	usr/local/include/lirc/lirc_client.h
+A	usr/include/iguanaIR.h
 A	usr/local/sbin/lircd
 A	usr/local/sbin/lircmd
+A	usr/bin/igclient
+A	usr/bin/igdaemon
 A	usr/local/bin/irpty
 A	usr/local/bin/irexec
 A	usr/local/bin/pronto2lirc
