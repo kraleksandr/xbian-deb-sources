@@ -169,8 +169,35 @@ if [ $1 == "configure" ]; then
     update-rc.d klogd remove &>/dev/null;
     update-rc.d sysklogd remove &>/dev/null;
 
+    echo "17a) Removing swapfile from /etc/fstab"
 
-	echo "17) Applying patches"
+    if [ $(grep '/var/swapfile' /etc/fstab| wc -l) -eq 1 ];	then
+        sed -i '/\/var\/swapfile/d' /etc/fstab
+        if [ $(grep '/var/swapfile' /etc/fstab| wc -l) -eq 0 ];	then
+            echo "Success: removing swapfile from /etc/fstab" >> /home/xbian/update.log;
+
+            echo "17b) Removing /var/swapfile"
+
+            if [ -f "/var/swapfile" ];	then
+                swapoff /var/swapfile
+                rm /var/swapfile
+                if [ ! -f "/var/swapfile" ];	then
+                    echo "Success: removing /var/swapfile" >> /home/xbian/update.log;
+                else
+                    echo "Error: removing /var/swapfile" >> /home/xbian/update.log;
+                fi
+            else
+                echo "Notice: /var/swapfile already removed" >> /home/xbian/update.log;
+            fi
+
+        else
+            echo "Error: removing swapfile from /etc/fstab" >> /home/xbian/update.log;
+        fi
+    else
+            echo "Notice: swapfile already removed from /etc/fstab" >> /home/xbian/update.log;
+    fi
+
+	echo "18) Applying patches"
 
 cat <<\EOF > /tmp/001-tmpfs.patch
 --- a/etc/default/tmpfs
