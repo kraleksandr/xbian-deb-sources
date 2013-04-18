@@ -6,7 +6,7 @@ Essential: No
 Priority: optional
 Codename: wheezy
 Architecture: armhf
-Installed-Size: 39430
+Installed-Size: 39480
 Depends: xbian-package-firmware (>=1.3)
 Maintainer: Koenkk <development@xbian.org>
 Description: Kernel 3.6.11 for the Raspberry Pi.

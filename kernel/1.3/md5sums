@@ -327,9 +327,9 @@ e97922a808b58cef2a76f4a087a26d30  lib/modules/3.6.11+/kernel/fs/binfmt_misc.ko
 ab38741aa68ccb1015d9182e5771d40d  lib/modules/3.6.11+/kernel/fs/ntfs/ntfs.ko
 73539757c0fb0e0da5cdff97765ebbb0  lib/modules/3.6.11+/kernel/fs/nilfs2/nilfs2.ko
 70f15343e10f05e8d4d2bcc982fdef9c  lib/modules/3.6.11+/kernel/fs/cifs/cifs.ko
-216ba389d6b136f165d01c4c674f4362  lib/modules/3.6.11+/kernel/fs/9p/9p.ko
+7acea9780c3f3c9357f7ee212c2102e0  lib/modules/3.6.11+/kernel/fs/9p/9p.ko
 743b017bd923deb4618e291801656565  lib/modules/3.6.11+/kernel/fs/gfs2/gfs2.ko
-07c003197cc54151e04c680f021ef9e4  lib/modules/3.6.11+/kernel/fs/btrfs/btrfs.ko
+c05994ac1b1f4b40f7070c123f94f983  lib/modules/3.6.11+/kernel/fs/btrfs/btrfs.ko
 d060bc31c91ca49bdfecf390554a8944  lib/modules/3.6.11+/kernel/fs/fuse/fuse.ko
 52fcde7c19cddc13c6fff08bf598bc85  lib/modules/3.6.11+/kernel/fs/fuse/cuse.ko
 2fdb71bfa3c4b171c1ddf5a32e857d36  lib/modules/3.6.11+/kernel/fs/ocfs2/dlmfs/ocfs2_dlmfs.ko
@@ -1336,7 +1336,7 @@ b6c4006cdd58f9a54afe3f6738a9fa52  lib/modules/3.6.11+/kernel/drivers/media/rc/ir
 d589970bb962299b7028f44d1abf6ffe  lib/modules/3.6.11+/kernel/drivers/cpufreq/cpufreq_stats.ko
 cc3615937add30430af7212e0831158f  lib/modules/3.6.11+/kernel/drivers/watchdog/bcm2708_wdog.ko
 dcb68974463be4bb6f42d97d5e952499  lib/modules/3.6.11+/kernel/drivers/staging/gdm72xx/gdmwm.ko
-a28516575725c389e96a37029c153f29  lib/modules/3.6.11+/kernel/drivers/staging/csr/csr_wifi.ko
+d5f8470b7f22076203dcb53405a4d1b0  lib/modules/3.6.11+/kernel/drivers/staging/csr/csr_wifi.ko
 b9d73d6775b3ec6639d79cd41108f92a  lib/modules/3.6.11+/kernel/drivers/staging/csr/csr_helper.ko
 1fe9e566630ce83198c9911f0455180b  lib/modules/3.6.11+/kernel/drivers/staging/rtl8712/r8712u.ko
 b66bd9f42cdff0be129ed09e0b1a969d  lib/modules/3.6.11+/kernel/drivers/staging/ozwpan/ozwpan.ko
