@@ -1,7 +1,7 @@
 0d231b1f137381e6ac80dcc507bd977f  etc/inittab
 9381562252b4b41f3e631e55e483b7c2  etc/default/console-setup
-acfbb30e8ca64ff1303d3eb697746d71  etc/init.d/zram-swap
+07a56866f23980c32beea2b77b4de1c5  etc/init.d/zram-swap
 dc97f24b6d6e02b7e2d513773961421d  etc/motd
-a5516fbbd946176fdd0f92810460c5c9  etc/rc.local
-5608deac2c556c7892a5dad3f8c619e5  usr/bin/splash
+3ba5ae2fd0c425881bceebc9140f3919  usr/bin/splash
 c35884c99f8e2e9ff3a86945928fef14  usr/sbin/truecrypt
+53a5f3c0888958837790633b72cd66e9  etc/xbian_version
