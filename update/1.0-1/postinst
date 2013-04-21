@@ -165,18 +165,28 @@ if [ $1 == "configure" ]; then
         echo "Error: enable zram-swap init script" >> /home/xbian/update.log;
     fi
 
-    echo "16) Remove klogd & sysklogd from update-rc.d"
+    echo "16) Enable frandom init script"
+
+    if [ -f "/etc/init.d/frandom" ];	then
+        chmod +x /etc/init.d/frandom;
+        update-rc.d frandom defaults &>/dev/null;
+        echo "Success: enable frandom init script" >> /home/xbian/update.log;
+    else
+        echo "Error: enable frandom init script" >> /home/xbian/update.log;
+    fi
+
+    echo "17) Remove klogd & sysklogd from update-rc.d"
     update-rc.d klogd remove &>/dev/null;
     update-rc.d sysklogd remove &>/dev/null;
 
-    echo "17a) Removing swapfile from /etc/fstab"
+    echo "18a) Removing swapfile from /etc/fstab"
 
     if [ $(grep '/var/swapfile' /etc/fstab| wc -l) -eq 1 ];	then
         sed -i '/\/var\/swapfile/d' /etc/fstab
         if [ $(grep '/var/swapfile' /etc/fstab| wc -l) -eq 0 ];	then
             echo "Success: removing swapfile from /etc/fstab" >> /home/xbian/update.log;
 
-            echo "17b) Removing /var/swapfile"
+            echo "18b) Removing /var/swapfile"
 
             if [ -f "/var/swapfile" ];	then
                 swapoff /var/swapfile
@@ -197,7 +207,7 @@ if [ $1 == "configure" ]; then
             echo "Notice: swapfile already removed from /etc/fstab" >> /home/xbian/update.log;
     fi
 
-	echo "18) Applying patches"
+	echo "19) Applying patches"
 
 cat <<\EOF > /tmp/001-tmpfs.patch
 --- a/etc/default/tmpfs

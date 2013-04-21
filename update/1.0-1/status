@@ -1,7 +1,9 @@
 A	etc/inittab
 A	etc/default/console-setup
 A	etc/init.d/zram-swap
+A	etc/init.d/frandom
 A	etc/motd
+A	lib/udev/rules.d/10-frandom.rules
 A	usr/bin/splash
 A	usr/bin/splash.fonts
 A	usr/bin/splash.images
