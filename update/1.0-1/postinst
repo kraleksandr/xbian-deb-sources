@@ -209,7 +209,7 @@ if [ $1 == "configure" ]; then
 
     echo "19) Restoring cmdline.txt"
 
-    if [ -f "/boot/cmdline.txt" ]; then
+    if [ ! -f "/boot/cmdline.txt" ]; then
         if [ -f "/boot/cmdline.txt.xbian" ]; then
             mv /boot/cmdline.txt.xbian /boot/cmdline.txt
             if [ -f "/boot/cmdline.txt" ]; then
