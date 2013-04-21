@@ -1,4 +1,3 @@
-A	boot/cmdline.txt
 A	boot/initramfs.gz
 A	etc/inittab
 A	etc/default/console-setup

@@ -72,5 +72,9 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 		mkdir -p "/usr/sbin";
 	fi
 
+    if [ -f "/boot/cmdline.txt" ]; then
+        mv /boot/cmdline.txt /boot/cmdline.txt.xbian
+    fi
+
 	echo "2) Installing new files"
 fi
