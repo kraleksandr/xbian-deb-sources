@@ -2,12 +2,6 @@
 
 if [[ $1 == "configure" ]]; then
 
-	if [ -d "/opt/cec" ]; then
-		cp -R /opt/cec/usr/* /usr/ 1>/dev/null 2>/dev/null >/dev/null
-		rm -r /opt/cec 1>/dev/null 2>/dev/null >/dev/null
-		ldconfig 1>/dev/null 2>/dev/null >/dev/null
-	fi
-
 	if [ -f "/tmp/startxbmc" ]; then
 		/etc/init.d/xbmc start 1>/dev/null 2>/dev/null >/dev/null
 		rm /tmp/startxbmc
