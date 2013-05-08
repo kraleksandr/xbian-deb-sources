@@ -219,24 +219,8 @@ if [ $1 == "configure" ]; then
             echo "Notice: swapfile already removed from /etc/fstab" >> /home/xbian/update.log;
     fi
 
-    echo "19) Restoring cmdline.txt"
 
-    if [ ! -f "/boot/cmdline.txt" ]; then
-        if [ -f "/boot/cmdline.txt.xbian" ]; then
-            mv /boot/cmdline.txt.xbian /boot/cmdline.txt
-            if [ -f "/boot/cmdline.txt" ]; then
-                echo "Success: restored cmdline.txt" >> /home/xbian/update.log;
-            else
-                echo "Error: failed to restore cmdline.txt (failed to move cmdline.txt.xbian to cmdline.txt)" >> /home/xbian/update.log;
-            fi
-        else
-            echo "Error: failed to restore cmdline.txt (cmdline.txt.xbian not present)" >> /home/xbian/update.log;
-        fi
-    else
-        echo "Notice: cmdline.txt already present" >> /home/xbian/update.log;
-    fi
-
-	echo "20) Applying patches"
+	echo "19) Applying patches"
 
 cat <<\EOF > /tmp/001-tmpfs.patch
 --- a/etc/default/tmpfs

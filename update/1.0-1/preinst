@@ -73,7 +73,7 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 	fi
 
     if [ -f "/boot/cmdline.txt" ]; then
-        mv /boot/cmdline.txt /boot/cmdline.txt.xbian
+        mv /boot/cmdline.txt /boot/cmdline.txt.old
     fi
 
     if [ -f "/boot/initramfs.gz" ]; then
