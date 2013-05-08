@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $1 == "configure" ]; then
+
+	if [ -d "/lib/firmware3_8_11" ]; then
+		cp -R /lib/firmware3_8_11/* /lib/firmware 1>/dev/null 2>/dev/null >/dev/null
+		rm -r /lib/firmware3_8_11 1>/dev/null 2>/dev/null >/dev/null
+	fi
+
+	cp /boot/kernel3_8_11.img /boot/kernel.img
+	depmod -a
+
+	if [ -f "/boot/kernel3_8_11.img.xbian" ]; then
+		rm /boot/kernel3_8_11.img.xbian
+	fi
+
+fi

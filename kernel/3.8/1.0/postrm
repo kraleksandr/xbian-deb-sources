@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $1 == "remove" ]; then
+
+	if [ -f "/boot/kernel.img" ]; then
+		if [[ $(md5sum /boot/kernel.img | awk '{print $1}') == "a0a626c30d9f97d9cab47b75c042c7e7" ]]; then
+			rm /boot/kernel.img
+		fi
+	fi
+
+	if [ -d /lib/modules/3.8.11+ ]; then
+		rm -r /lib/modules/3.8.11+
+	fi
+
+fi
