@@ -86,34 +86,7 @@ if [ $1 == "configure" ]; then
 		echo "Notice: watchdog already disabled" >> /home/xbian/update.log; 
 	fi
 
-	echo "9a) Make /etc/fstab static (/dev/mmcblk0p1)"
-
-	if [ $(grep "/dev/mmcblk0p1"  /etc/fstab| wc -l) -eq 1 ];	then
-		sed -i 's:/dev/mmcblk0p1:UUID=8B12-9112:g' /etc/fstab
-		if [ $(grep "UUID=8B12-9112" /etc/fstab| wc -l) -eq 1 ];	then
-			echo "Success: made /dev/mmcblk0p1 static" >> /home/xbian/update.log; 
-		else
-			echo "Error: failed to make /dev/mmcblk0p1 static" >> /home/xbian/update.log; 
-		fi
-	else
-		echo "Notice: /dev/mmcblk0p1 already static" >> /home/xbian/update.log; 
-	fi
-
-	echo "9b) Make /etc/fstab static (/dev/mmcblk0p2)"
-	# isn't working yet!
-	if [ 1 != 1 ]; then 
-	# if [ $(grep "/dev/mmcblk0p2"  /etc/fstab| wc -l) -eq 1 ];	then
-		sed -i 's:/dev/mmcblk0p2:UUID=29b6c2f5-5469-49f2-abd5-daa9149021cc:g' /etc/fstab
-		if [ $(grep "UUID=29b6c2f5-5469-49f2-abd5-daa9149021cc" /etc/fstab| wc -l) -eq 1 ];	then
-			echo "Success: made /dev/mmcblk0p2 static" >> /home/xbian/update.log; 
-		else
-			echo "Error: failed to make /dev/mmcblk0p2 static" >> /home/xbian/update.log; 
-		fi
-	else
-		echo "Notice: /dev/mmcblk0p2 already static" >> /home/xbian/update.log; 
-	fi
-
-    echo "10) Symlink /usr/lib/vfp to /opt/vc/lib"
+    echo "9) Symlink /usr/lib/vfp to /opt/vc/lib"
 
     if [ -f "/usr/lib/vfp" -o  -d "/usr/lib/vfp" ];	then
         rm -r /usr/lib/vfp
@@ -129,7 +102,7 @@ if [ $1 == "configure" ]; then
         echo "Failed: to symlink /usr/lib/vfp to /opt/vc/lib" >> /home/xbian/update.log;
     fi
 
-    echo "11) Enable auto fsck on boot"
+    echo "10) Enable auto fsck on boot"
 
     if [ $(grep "#FSCKFIX=no" /etc/default/rcS| wc -l) -eq 1 ];	then
         sed -i 's/#FSCKFIX=no/FSCKFIX=yes/g' /etc/default/rcS
@@ -142,7 +115,7 @@ if [ $1 == "configure" ]; then
         echo "Notice: enable auto fsck on boot already set" >> /home/xbian/update.log;
     fi
 
-    echo "14) Adjust wpa_supplicant functions.sh"
+    echo "11) Adjust wpa_supplicant functions.sh"
 
     if [ $(grep 'WPA_SUP_PIDFILE="/var/run/' /etc/wpa_supplicant/functions.sh| wc -l) -eq 1 ];	then
         sed -i 's:WPA_SUP_PIDFILE="\/var\/run\/:WPA_SUP_PIDFILE="\/root\/:g' /etc/wpa_supplicant/functions.sh
@@ -155,7 +128,7 @@ if [ $1 == "configure" ]; then
         echo "Notice: wpa_supplicant functions.sh already adjusted" >> /home/xbian/update.log;
     fi
 
-    echo "15) Enable zram-swap init script"
+    echo "12) Enable zram-swap init script"
 
     if [ -f "/etc/init.d/zram-swap" ];	then
         chmod +x /etc/init.d/zram-swap;
@@ -165,7 +138,7 @@ if [ $1 == "configure" ]; then
         echo "Error: enable zram-swap init script" >> /home/xbian/update.log;
     fi
 
-    echo "16) Enable frandom"
+    echo "13) Enable frandom"
 
     if [ -f "/etc/init.d/frandom" ];	then
         chmod +x /etc/init.d/frandom;
@@ -187,18 +160,18 @@ if [ $1 == "configure" ]; then
         echo "Error: enable frandom init script" >> /home/xbian/update.log;
     fi
 
-    echo "17) Remove klogd & sysklogd from update-rc.d"
+    echo "14) Remove klogd & sysklogd from update-rc.d"
     update-rc.d klogd remove &>/dev/null;
     update-rc.d sysklogd remove &>/dev/null;
 
-    echo "18a) Removing swapfile from /etc/fstab"
+    echo "15a) Removing swapfile from /etc/fstab"
 
     if [ $(grep '/var/swapfile' /etc/fstab| wc -l) -eq 1 ];	then
         sed -i '/\/var\/swapfile/d' /etc/fstab
         if [ $(grep '/var/swapfile' /etc/fstab| wc -l) -eq 0 ];	then
             echo "Success: removing swapfile from /etc/fstab" >> /home/xbian/update.log;
 
-            echo "18b) Removing /var/swapfile"
+            echo "15b) Removing /var/swapfile"
 
             if [ -f "/var/swapfile" ];	then
                 swapoff /var/swapfile
@@ -220,7 +193,7 @@ if [ $1 == "configure" ]; then
     fi
 
 
-	echo "19) Applying patches"
+	echo "16) Applying patches"
 
 cat <<\EOF > /tmp/001-tmpfs.patch
 --- a/etc/default/tmpfs
@@ -310,10 +283,6 @@ EOF
 		update-rc.d bootlocal remove &>/dev/null
 		rm -r "/etc/init.d/bootlocal";
 	fi
-
-    if [ -f "/boot/initramfs.gz.xbian" ]; then
-        rm /boot/initramfs.gz.xbian
-    fi
 
 	echo "!------------------------------------------------!"
 	echo "!                                                !"
