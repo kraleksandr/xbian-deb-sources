@@ -1,5 +1,4 @@
 A	boot/kernel3_8_11.img
-A	boot/initramfs.gz
 A	lib/modules/3.8.11+/modules.symbols
 A	lib/modules/3.8.11+/modules.alias.bin
 A	lib/modules/3.8.11+/modules.softdep
