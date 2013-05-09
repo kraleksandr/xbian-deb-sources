@@ -14,4 +14,8 @@ if [ $1 == "configure" ]; then
 		rm /boot/kernel3_8_11.img.xbian
 	fi
 
+        mountpoint -q /boot || mount /boot
+        test -e /etc/xbian-initramfs/update-initramfs.sh && /etc/xbian-initramfs/update-initramfs.sh "3.8.11+" > /dev/null 2>&1
+        umount /boot
+
 fi
