@@ -311,10 +311,6 @@ EOF
 		rm -r "/etc/init.d/bootlocal";
 	fi
 
-    if [ -f "/boot/initramfs.gz.xbian" ]; then
-        rm /boot/initramfs.gz.xbian
-    fi
-
 	echo "!------------------------------------------------!"
 	echo "!                                                !"
 	echo "! System will automatically reboot in 30 seconds !"

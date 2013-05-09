@@ -76,9 +76,5 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
         mv /boot/cmdline.txt /boot/cmdline.txt.old
     fi
 
-    if [ -f "/boot/initramfs.gz" ]; then
-        mv /boot/initramfs.gz /boot/initramfs.gz.xbian
-    fi
-
 	echo "2) Installing new files"
 fi

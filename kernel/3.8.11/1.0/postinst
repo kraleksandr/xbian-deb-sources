@@ -14,4 +14,8 @@ if [ $1 == "configure" ]; then
 		rm /boot/kernel3_8_11.img.xbian
 	fi
 
+    if [ -f "/boot/initramfs.gz.xbian" ]; then
+        rm /boot/initramfs.gz.xbian
+    fi
+
 fi

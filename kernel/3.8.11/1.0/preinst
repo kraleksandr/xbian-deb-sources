@@ -6,6 +6,10 @@ if [ $1 == "install" -o $1 == "upgrade" ]; then
 		mv /boot/kernel3_8_11.img /boot/kernel3_8_11.img.xbian
 	fi
 
+    if [ -f "/boot/initramfs.gz" ]; then
+        mv /boot/initramfs.gz /boot/initramfs.gz.xbian
+    fi
+
 	if [ ! -d "/boot" ]; then
 		mkdir -p "/boot";
 	fi
