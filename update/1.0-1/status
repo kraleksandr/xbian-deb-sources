@@ -9,17 +9,5 @@ A	etc/init.d/progress50
 A	etc/init.d/progress75
 A	etc/motd
 A	lib/udev/rules.d/10-frandom.rules
-A	usr/bin/splash
-A	usr/bin/splash.fonts
-A	usr/bin/splash.images
 A	usr/sbin/truecrypt
 A	etc/xbian_version
-A	usr/share/images/splash/barEnd.jpg
-A	usr/share/images/splash/barFill.jpg
-A	usr/share/images/splash/barStart.jpg
-A	usr/share/images/splash/emptyEnd.jpg
-A	usr/share/images/splash/emptyFill.jpg
-A	usr/share/images/splash/emptyStart.jpg
-A	usr/share/images/splash/logo.jpg
-A	usr/share/images/splash/progressbar.jpg
-A	usr/share/fonts/splash/Comfortaa-Light.ttf
