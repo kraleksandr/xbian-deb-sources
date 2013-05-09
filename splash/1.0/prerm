@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $1 == "remove" ]; then
+
+	/etc/init.d/xbmc stop 1>/dev/null 2>/dev/null >/dev/null
+
+	if [ -f /usr/bin/splash ]; then
+		rm /usr/bin/splash;
+	fi
+
+	if [ -f /usr/bin/splash.fonts ]; then
+		rm -r /usr/bin/splash.fonts;
+	fi
+
+	if [ -d /usr/bin/splash.images ]; then
+		rm -r /usr/bin/splash.images;
+	fi
+
+	if [ -d /usr/share/images/splash ]; then
+		rm -r /usr/share/images/splash;
+	fi
+
+	if [ -d /usr/share/fonts/splash ]; then
+                rm -r /usr/share/fonts/splash;
+        fi
+
+fi

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $1 == "install" -o $1 == "upgrade" ]; then
+
+	if [ ! -d "/usr/bin" ]; then
+		mkdir -p "/usr/bin";
+	fi
+
+	if [ ! -d "/usr/share/images/splash" ]; then
+		mkdir -p "/usr/share/images/splash";
+	fi
+
+	if [ ! -d "/usr/share/fonts/splash" ]; then
+		mkdir -p "/usr/share/fonts/splash";
+	fi
+
+fi
