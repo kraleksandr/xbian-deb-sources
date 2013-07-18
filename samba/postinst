@@ -24,7 +24,7 @@ cat <<\EOF > /etc/samba/smb.conf
 	read only = no
 	guest ok = yes
 	path = /media
-	force user = root
+	force user = xbian
 EOF
 
 	if [ -f /etc/nsswitch.conf ]; then
